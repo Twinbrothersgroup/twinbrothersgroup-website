@@ -1,0 +1,38 @@
+{
+  "name": "Twin Brothers Group",
+  "short_name": "TBG",
+  "description": "Expert framing subcontractor serving the Greater Seattle Area. Commercial & residential framing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#cc1414",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["business"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Request a Bid",
+      "url": "/contact",
+      "description": "Get a free project estimate"
+    },
+    {
+      "name": "Framing Services",
+      "url": "/services",
+      "description": "View our framing services"
+    },
+    {
+      "name": "Our Projects",
+      "url": "/portfolio",
+      "description": "Browse our project portfolio"
+    }
+  ]
+}
