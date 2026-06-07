@@ -1,0 +1,13 @@
+{
+  "name": "tbg-sdr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Twin Brothers Group automated cold-outreach engine (Vercel cron + Notion + Claude + Gmail).",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0",
+    "@notionhq/client": "^2.2.15",
+    "googleapis": "^144.0.0"
+  }
+}
