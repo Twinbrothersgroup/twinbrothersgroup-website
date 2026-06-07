@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#cc1414" />
+<title>TBG — Cold Approach Dashboard</title>
+<link rel="icon" href="/icons/icon.svg" />
+<style>
+  :root{
+    --bg:#0a0a0a;--panel:#151515;--panel2:#1d1d1d;--line:#2a2a2a;--red:#cc1414;--red2:#ff5a5a;
+    --txt:#f2f2f2;--muted:#9a9a9a;--green:#34d399;--blue:#60a5fa;--yellow:#fbbf24;--orange:#fb923c;--purple:#a78bfa;--gray:#6b7280;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  /* gate */
+  #gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:50;flex-direction:column;gap:14px;padding:24px}
+  #gate h1{font-size:20px;margin:0}#gate p{color:var(--muted);font-size:13px;margin:0;text-align:center}
+  #gate input{background:var(--panel2);border:1px solid var(--line);color:#fff;padding:12px 14px;border-radius:10px;font-size:16px;width:240px;text-align:center}
+  #gate button{background:var(--red);color:#fff;border:0;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
+  #app{display:none;max-width:1100px;margin:0 auto;padding:18px 16px 60px}
+  header{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  header h1{font-size:20px;margin:0}header h1 span{color:var(--red2)}
+  .sub{color:var(--muted);font-size:12px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .kpi .v{font-size:26px;font-weight:800;line-height:1.1}
+  .kpi .l{color:var(--muted);font-size:12px;margin-top:4px}
+  .kpi.win .v{color:var(--green)}.kpi.money .v{color:var(--red2)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:740px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+  .card h2{font-size:14px;margin:0 0 12px;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+  .bar{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+  .bar .lab{width:120px;flex:0 0 120px;color:var(--muted)}
+  .bar .track{flex:1;background:var(--panel2);border-radius:6px;height:18px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:6px}
+  .bar .n{width:32px;flex:0 0 32px;text-align:right;font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase}
+  td .pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px}
+  .s-Won{background:rgba(52,211,153,.16);color:var(--green)}
+  .s-Submitted{background:rgba(96,165,250,.16);color:var(--blue)}
+  .s-InProgress{background:rgba(251,191,36,.16);color:var(--yellow)}
+  .s-Pending{background:rgba(251,146,60,.16);color:var(--orange)}
+  .s-Qualifying{background:rgba(167,139,250,.16);color:var(--purple)}
+  .s-Hold{background:rgba(107,114,128,.2);color:#cbd5e1}
+  .amt{font-weight:700;text-align:right}
+  ul.list{margin:0;padding:0;list-style:none}
+  ul.list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45}
+  ul.list li b{color:#fff}
+  .tag{font-size:11px;color:var(--red2);font-weight:700}
+  footer{color:var(--muted);font-size:11px;text-align:center;margin-top:18px;line-height:1.6}
+</style>
+</head>
+<body>
+<div id="gate">
+  <h1>🔒 TBG Dashboard</h1>
+  <p>Enter the team passcode</p>
+  <input id="code" type="password" autocomplete="off" placeholder="passcode" />
+  <button onclick="checkCode()">Open dashboard</button>
+  <p style="opacity:.6">Internal use only.</p>
+</div>
+<div id="app"></div>
+
+<script>
+/* ====== DATA (from Claude Cowork trackers — update this block to refresh) ====== */
+var TBG = {
+  updated: "2026-06-07",
+  kpis: {
+    pipeline: 2013436, won: 133812, bids: 16, companies: 79,
+    replyRate: "16%", winRate: "11%", replies: 12
+  },
+  bidsByStatus: [ /* count */
+    {k:"Won",n:1,c:"var(--green)"},{k:"Submitted",n:8,c:"var(--blue)"},
+    {k:"In Progress",n:4,c:"var(--yellow)"},{k:"Pending",n:1,c:"var(--orange)"},
+    {k:"Qualifying",n:1,c:"var(--purple)"},{k:"Hold",n:1,c:"var(--gray)"}
+  ],
+  outreach: [
+    {k:"Replied",n:10,c:"var(--green)"},{k:"Contacted",n:52,c:"var(--blue)"},
+    {k:"Not contacted",n:8,c:"var(--gray)"},{k:"Bounced",n:8,c:"var(--orange)"},{k:"Dead",n:1,c:"var(--red)"}
+  ],
+  bids: [
+    {p:"ASC-011 ToniRene",gc:"AS Contractor / York",amt:133812,s:"Won"},
+    {p:"Moment Townhomes (17u)",gc:"Ichijo USA",amt:513000,s:"Submitted"},
+    {p:"Kumar 19th DADU",gc:"Envision Builders",amt:100612,s:"Submitted"},
+    {p:"Mirikeen SFR — Beaux Arts",gc:"Mirikeen Homes",amt:77300,s:"Submitted"},
+    {p:"Jensen Prof. Center Ph2",gc:"Belmark LLC",amt:33107,s:"Submitted"},
+    {p:"NoDo Spokane (260u)",gc:"ACG Builds",amt:null,s:"Submitted"},
+    {p:"Golden Given (2 SFR)",gc:"NWQM / Jonah",amt:null,s:"Submitted"},
+    {p:"Lowe's #03167 Wenatchee",gc:"Core States",amt:null,s:"Submitted"},
+    {p:"Fieldstone Lynnwood",gc:"The Rush Companies",amt:null,s:"Submitted"},
+    {p:"Lakewood Heights (181 homes)",gc:"Century Communities",amt:null,s:"Pending"},
+    {p:"MV3 Emerald Family Trust",gc:"Custom Home Company",amt:null,s:"In Progress"},
+    {p:"Perino Custom — Tumble Creek",gc:"Brock Smith",amt:null,s:"In Progress"},
+    {p:"S Bradford Pl (12u)",gc:"LCM Builders",amt:null,s:"In Progress"},
+    {p:"Curry ADUs — Drywall",gc:"Alpha Sharp",amt:null,s:"In Progress"},
+    {p:"Toll Brothers WA (qual.)",gc:"Toll Brothers",amt:null,s:"Qualifying"},
+    {p:"Custom Home — Snohomish",gc:"Cornerstone Homes",amt:null,s:"Hold"}
+  ],
+  hot: [
+    "RAFN — Steve Buerk · Little Saigon 70-unit, wants prequal",
+    "Alpha Sharp — Tony Talton (VP) · sent plans, wants labor-only bid",
+    "Toll Brothers — Chad Lund · qualifying, meeting set",
+    "Century Communities — Cole Cassidy · 181-home ITB",
+    "LCM Builders — Hans · 12-unit, found you via Wallingford job",
+    "Brock Smith — Perino · wants proposal ASAP",
+    "WG Clark · sent prequal form",
+    "Sierra Construction · added you to bid list"
+  ],
+  doNow: [
+    "<b>MV3 / Custom HC</b> — itemized bid <b>due 6/8</b>",
+    "<b>LCM — S Bradford 12u</b> — hot inbound, due ~6/11",
+    "<b>Brock Smith — Perino</b> — proposal ASAP",
+    "<b>Toll Brothers</b> — send refs + crew capacity",
+    "<b>Belmark — Jensen Ph2</b> — re-price (their hardware, your nails)"
+  ]
+};
+/* ============================================================================= */
+
+function money(n){return n==null?"—":"$"+n.toLocaleString();}
+function statusClass(s){return "s-"+s.replace(/\s/g,"");}
+
+function bars(arr){
+  var max=Math.max.apply(null,arr.map(function(x){return x.n;}))||1;
+  return arr.map(function(x){
+    return '<div class="bar"><span class="lab">'+x.k+'</span>'
+      +'<span class="track"><span class="fill" style="width:'+(x.n/max*100)+'%;background:'+x.c+'"></span></span>'
+      +'<span class="n">'+x.n+'</span></div>';
+  }).join("");
+}
+
+function render(){
+  var k=TBG.kpis;
+  var html=''
+    +'<header><h1>TBG <span>·</span> Cold-Approach Dashboard</h1>'
+    +'<span class="sub">Live data · updated '+TBG.updated+'</span></header>'
+    +'<div class="kpis">'
+    +'<div class="kpi money"><div class="v">$'+(k.pipeline/1e6).toFixed(2)+'M</div><div class="l">Active pipeline</div></div>'
+    +'<div class="kpi win"><div class="v">'+money(k.won)+'</div><div class="l">Won</div></div>'
+    +'<div class="kpi"><div class="v">'+k.bids+'</div><div class="l">Bids / pursuits</div></div>'
+    +'<div class="kpi"><div class="v">'+k.companies+'</div><div class="l">Companies</div></div>'
+    +'<div class="kpi"><div class="v">'+k.replyRate+'</div><div class="l">Reply rate</div></div>'
+    +'<div class="kpi win"><div class="v">'+k.winRate+'</div><div class="l">Win rate</div></div>'
+    +'</div>'
+    +'<div class="grid">'
+    +'<div class="card"><h2>Bids by status</h2>'+bars(TBG.bidsByStatus)+'</div>'
+    +'<div class="card"><h2>Outreach funnel (79 GCs)</h2>'+bars(TBG.outreach)+'</div>'
+    +'</div>'
+    +'<div class="card"><h2>💰 Bids / pipeline</h2><table><thead><tr><th>Project</th><th>GC</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead><tbody>'
+    +TBG.bids.map(function(b){return '<tr><td><b>'+b.p+'</b></td><td>'+b.gc+'</td><td><span class="pill '+statusClass(b.s)+'">'+b.s+'</span></td><td class="amt">'+money(b.amt)+'</td></tr>';}).join("")
+    +'</tbody></table></div>'
+    +'<div class="grid">'
+    +'<div class="card"><h2>🔥 Hot replies</h2><ul class="list">'+TBG.hot.map(function(h){return '<li>'+h+'</li>';}).join("")+'</ul></div>'
+    +'<div class="card"><h2>🟢 Do now this week</h2><ul class="list">'+TBG.doNow.map(function(d){return '<li>'+d+'</li>';}).join("")+'</ul></div>'
+    +'</div>'
+    +'<footer>Twin Brothers Group LLC · internal sales dashboard · data from Claude Cowork trackers<br>Snapshot — edit the DATA block / redeploy to refresh.</footer>';
+  document.getElementById('app').innerHTML=html;
+}
+
+var PASS="twin2026"; // change this to your team passcode
+function open_(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';render();}
+function checkCode(){
+  if(document.getElementById('code').value===PASS){try{localStorage.setItem('tbg_dash','1');}catch(e){}open_();}
+  else{document.getElementById('code').value='';document.getElementById('code').placeholder='try again';}
+}
+document.getElementById('code').addEventListener('keydown',function(e){if(e.key==='Enter')checkCode();});
+try{if(localStorage.getItem('tbg_dash')==='1')open_();}catch(e){}
+</script>
+</body>
+</html>
