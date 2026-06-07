@@ -5,169 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#cc1414" />
-<title>TBG — Cold Approach Dashboard</title>
-<link rel="icon" href="/icons/icon.svg" />
+<title>TBG — Cold Email System</title>
 <style>
-  :root{
-    --bg:#0a0a0a;--panel:#151515;--panel2:#1d1d1d;--line:#2a2a2a;--red:#cc1414;--red2:#ff5a5a;
-    --txt:#f2f2f2;--muted:#9a9a9a;--green:#34d399;--blue:#60a5fa;--yellow:#fbbf24;--orange:#fb923c;--purple:#a78bfa;--gray:#6b7280;
-  }
+  :root{--bg:#0a0a0a;--panel:#151515;--panel2:#1d1d1d;--line:#2a2a2a;--red:#cc1414;--red2:#ff5a5a;--txt:#f2f2f2;--muted:#9a9a9a;--green:#34d399;--blue:#60a5fa;--amber:#fbbf24}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  /* gate */
   #gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:50;flex-direction:column;gap:14px;padding:24px}
-  #gate h1{font-size:20px;margin:0}#gate p{color:var(--muted);font-size:13px;margin:0;text-align:center}
+  #gate h1{font-size:22px;margin:0}#gate p{color:var(--muted);font-size:13px;margin:0;text-align:center;max-width:340px}
   #gate input{background:var(--panel2);border:1px solid var(--line);color:#fff;padding:12px 14px;border-radius:10px;font-size:16px;width:240px;text-align:center}
   #gate button{background:var(--red);color:#fff;border:0;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
-  #app{display:none;max-width:1100px;margin:0 auto;padding:18px 16px 60px}
-  header{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-  header h1{font-size:20px;margin:0}header h1 span{color:var(--red2)}
+  #err{color:var(--red2);font-size:13px;min-height:16px}
+  #app{display:none;max-width:1100px;margin:0 auto;padding:14px 14px 70px}
+  header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  header h1{font-size:19px;margin:0}header h1 span{color:var(--red2)}
   .sub{color:var(--muted);font-size:12px}
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
-  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
-  .kpi .v{font-size:26px;font-weight:800;line-height:1.1}
-  .kpi .l{color:var(--muted);font-size:12px;margin-top:4px}
+  nav{display:flex;gap:6px;margin:12px 0 16px;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
+  nav button{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:9px 14px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer}
+  nav button.on{background:var(--red);color:#fff;border-color:var(--red)}
+  .tab{display:none}.tab.on{display:block}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:11px;margin:8px 0 16px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px}
+  .kpi .v{font-size:25px;font-weight:800;line-height:1.1}.kpi .l{color:var(--muted);font-size:12px;margin-top:4px}
   .kpi.win .v{color:var(--green)}.kpi.money .v{color:var(--red2)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:740px){.grid{grid-template-columns:1fr}}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:740px){.grid{grid-template-columns:1fr}}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
   .card h2{font-size:14px;margin:0 0 12px;color:#fff;text-transform:uppercase;letter-spacing:.5px}
   .bar{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
-  .bar .lab{width:120px;flex:0 0 120px;color:var(--muted)}
+  .bar .lab{width:110px;flex:0 0 110px;color:var(--muted)}
   .bar .track{flex:1;background:var(--panel2);border-radius:6px;height:18px;overflow:hidden}
-  .bar .fill{height:100%;border-radius:6px}
-  .bar .n{width:32px;flex:0 0 32px;text-align:right;font-weight:700}
+  .bar .fill{height:100%;border-radius:6px}.bar .n{width:30px;flex:0 0 30px;text-align:right;font-weight:700}
   table{width:100%;border-collapse:collapse;font-size:13px}
-  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
-  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase}
-  td .pill{font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px}
-  .s-Won{background:rgba(52,211,153,.16);color:var(--green)}
-  .s-Submitted{background:rgba(96,165,250,.16);color:var(--blue)}
-  .s-InProgress{background:rgba(251,191,36,.16);color:var(--yellow)}
-  .s-Pending{background:rgba(251,146,60,.16);color:var(--orange)}
-  .s-Qualifying{background:rgba(167,139,250,.16);color:var(--purple)}
-  .s-Hold{background:rgba(107,114,128,.2);color:#cbd5e1}
+  th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;position:sticky;top:54px;background:var(--panel)}
+  .pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .amt{font-weight:700;text-align:right}
-  ul.list{margin:0;padding:0;list-style:none}
-  ul.list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45}
-  ul.list li b{color:#fff}
-  .tag{font-size:11px;color:var(--red2);font-weight:700}
+  ul.list{margin:0;padding:0;list-style:none}ul.list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45}ul.list li b{color:#fff}
+  .search{width:100%;background:var(--panel2);border:1px solid var(--line);color:#fff;padding:10px 12px;border-radius:10px;font-size:14px;margin-bottom:12px}
+  .btn{display:inline-block;background:var(--panel2);border:1px solid var(--line);color:var(--red2);padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn:hover{border-color:var(--red)}
+  .tmpl{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:13px;margin-bottom:12px}
+  .tmpl .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+  .tmpl .day{font-size:11px;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:.5px}
+  .tmpl .subj{font-size:12px;color:var(--muted);margin-bottom:6px}.tmpl .subj b{color:#fff}
+  .tmpl pre{white-space:pre-wrap;font-family:inherit;font-size:12.5px;line-height:1.5;margin:0;color:#dcdcdc}
+  .cad{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .cad div{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12px}
+  .cad div b{display:block;color:var(--red2);font-size:13px;margin-bottom:3px}
   footer{color:var(--muted);font-size:11px;text-align:center;margin-top:18px;line-height:1.6}
+  .note{font-size:12px;color:var(--muted);line-height:1.5}
 </style>
 </head>
 <body>
 <div id="gate">
-  <h1>🔒 TBG Dashboard</h1>
-  <p>Enter the team passcode</p>
-  <input id="code" type="password" autocomplete="off" placeholder="passcode" />
-  <button onclick="checkCode()">Open dashboard</button>
-  <p style="opacity:.6">Internal use only.</p>
+  <h1>🔒 TBG Cold Email System</h1>
+  <p>End-to-end encrypted. Enter the team password to decrypt the dashboard, contact database, and email playbook in your browser.</p>
+  <input id="code" type="password" autocomplete="off" placeholder="password" />
+  <button onclick="unlock()">Unlock</button>
+  <div id="err"></div>
 </div>
 <div id="app"></div>
 
 <script>
-/* ====== DATA (from Claude Cowork trackers — update this block to refresh) ====== */
-var TBG = {
-  updated: "2026-06-07",
-  kpis: {
-    pipeline: 2013436, won: 133812, bids: 16, companies: 79,
-    replyRate: "16%", winRate: "11%", replies: 12
-  },
-  bidsByStatus: [ /* count */
-    {k:"Won",n:1,c:"var(--green)"},{k:"Submitted",n:8,c:"var(--blue)"},
-    {k:"In Progress",n:4,c:"var(--yellow)"},{k:"Pending",n:1,c:"var(--orange)"},
-    {k:"Qualifying",n:1,c:"var(--purple)"},{k:"Hold",n:1,c:"var(--gray)"}
-  ],
-  outreach: [
-    {k:"Replied",n:10,c:"var(--green)"},{k:"Contacted",n:52,c:"var(--blue)"},
-    {k:"Not contacted",n:8,c:"var(--gray)"},{k:"Bounced",n:8,c:"var(--orange)"},{k:"Dead",n:1,c:"var(--red)"}
-  ],
-  bids: [
-    {p:"ASC-011 ToniRene",gc:"AS Contractor / York",amt:133812,s:"Won"},
-    {p:"Moment Townhomes (17u)",gc:"Ichijo USA",amt:513000,s:"Submitted"},
-    {p:"Kumar 19th DADU",gc:"Envision Builders",amt:100612,s:"Submitted"},
-    {p:"Mirikeen SFR — Beaux Arts",gc:"Mirikeen Homes",amt:77300,s:"Submitted"},
-    {p:"Jensen Prof. Center Ph2",gc:"Belmark LLC",amt:33107,s:"Submitted"},
-    {p:"NoDo Spokane (260u)",gc:"ACG Builds",amt:null,s:"Submitted"},
-    {p:"Golden Given (2 SFR)",gc:"NWQM / Jonah",amt:null,s:"Submitted"},
-    {p:"Lowe's #03167 Wenatchee",gc:"Core States",amt:null,s:"Submitted"},
-    {p:"Fieldstone Lynnwood",gc:"The Rush Companies",amt:null,s:"Submitted"},
-    {p:"Lakewood Heights (181 homes)",gc:"Century Communities",amt:null,s:"Pending"},
-    {p:"MV3 Emerald Family Trust",gc:"Custom Home Company",amt:null,s:"In Progress"},
-    {p:"Perino Custom — Tumble Creek",gc:"Brock Smith",amt:null,s:"In Progress"},
-    {p:"S Bradford Pl (12u)",gc:"LCM Builders",amt:null,s:"In Progress"},
-    {p:"Curry ADUs — Drywall",gc:"Alpha Sharp",amt:null,s:"In Progress"},
-    {p:"Toll Brothers WA (qual.)",gc:"Toll Brothers",amt:null,s:"Qualifying"},
-    {p:"Custom Home — Snohomish",gc:"Cornerstone Homes",amt:null,s:"Hold"}
-  ],
-  hot: [
-    "RAFN — Steve Buerk · Little Saigon 70-unit, wants prequal",
-    "Alpha Sharp — Tony Talton (VP) · sent plans, wants labor-only bid",
-    "Toll Brothers — Chad Lund · qualifying, meeting set",
-    "Century Communities — Cole Cassidy · 181-home ITB",
-    "LCM Builders — Hans · 12-unit, found you via Wallingford job",
-    "Brock Smith — Perino · wants proposal ASAP",
-    "WG Clark · sent prequal form",
-    "Sierra Construction · added you to bid list"
-  ],
-  doNow: [
-    "<b>MV3 / Custom HC</b> — itemized bid <b>due 6/8</b>",
-    "<b>LCM — S Bradford 12u</b> — hot inbound, due ~6/11",
-    "<b>Brock Smith — Perino</b> — proposal ASAP",
-    "<b>Toll Brothers</b> — send refs + crew capacity",
-    "<b>Belmark — Jensen Ph2</b> — re-price (their hardware, your nails)"
-  ]
-};
-/* ============================================================================= */
+/* All data below is AES-256-GCM encrypted. Nothing sensitive is in this file as
+   plaintext — it only decrypts in the browser with the correct password. */
+var BLOB = {"s":"q2tWCYk++KrTS/QNj/A9Yw==","i":"CgGRCgTEjRhNSdfJ","c":"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"};
 
-function money(n){return n==null?"—":"$"+n.toLocaleString();}
-function statusClass(s){return "s-"+s.replace(/\s/g,"");}
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+async function deriveKey(p){var k=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(BLOB.s),iterations:150000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);}
+async function decrypt(p){var key=await deriveKey(p);
+  var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(BLOB.i)},key,b64(BLOB.c));
+  return JSON.parse(new TextDecoder().decode(pt));}
 
-function bars(arr){
-  var max=Math.max.apply(null,arr.map(function(x){return x.n;}))||1;
-  return arr.map(function(x){
-    return '<div class="bar"><span class="lab">'+x.k+'</span>'
-      +'<span class="track"><span class="fill" style="width:'+(x.n/max*100)+'%;background:'+x.c+'"></span></span>'
-      +'<span class="n">'+x.n+'</span></div>';
-  }).join("");
+var T=null;
+function money(n){return n==null?"—":"$"+Number(n).toLocaleString();}
+var SC={Won:"#34d399",Bidding:"#ff5a5a",Replied:"#fbbf24",Qualifying:"#a78bfa",Contacted:"#60a5fa",Cold:"#6b7280"};
+function pill(s){var c=SC[s]||"#6b7280";return '<span class="pill" style="background:'+c+'22;color:'+c+';border:1px solid '+c+'55">'+s+'</span>';}
+function bars(arr){var m=Math.max.apply(null,arr.map(function(x){return x.n;}))||1;
+  return arr.map(function(x){return '<div class="bar"><span class="lab">'+x.k+'</span><span class="track"><span class="fill" style="width:'+(x.n/m*100)+'%;background:'+x.c+'"></span></span><span class="n">'+x.n+'</span></div>';}).join("");}
+
+function mailtoFor(co){
+  var t=T.templates[0];
+  var name=co.c?co.c:(co.n+" team");
+  var subj=t.subj.replace("[their project / street]", co.h||co.n);
+  var body=t.body.replace("[Name / Team]",name).replace("[One specific line about THEIR project — pull from the lead's hook, e.g. \"Saw your 24-unit wood-frame at 14220 SE Newport Way\"]","Saw "+(co.h||"your recent work")).replace(/\[project\]/g, co.h||"your project");
+  return "mailto:"+(co.e||"")+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
 }
 
+function renderDash(){
+  var k=T.kpis;
+  return '<div class="kpis">'
+   +'<div class="kpi money"><div class="v">$'+(k.pipeline/1e6).toFixed(2)+'M</div><div class="l">Active pipeline</div></div>'
+   +'<div class="kpi win"><div class="v">'+money(k.won)+'</div><div class="l">Won</div></div>'
+   +'<div class="kpi"><div class="v">'+k.bids+'</div><div class="l">Bids / pursuits</div></div>'
+   +'<div class="kpi"><div class="v">'+k.companies+'</div><div class="l">Companies</div></div>'
+   +'<div class="kpi"><div class="v">'+k.sent+'</div><div class="l">Cold emails sent</div></div>'
+   +'<div class="kpi"><div class="v">'+k.replyRate+'</div><div class="l">Reply rate</div></div></div>'
+   +'<div class="grid"><div class="card"><h2>Pipeline by status</h2>'+bars(T.bidsByStatus)+'</div>'
+   +'<div class="card"><h2>Outreach funnel</h2>'+bars(T.outreach)+'</div></div>'
+   +'<div class="card"><h2>💰 Bids / pipeline</h2><table><thead><tr><th>Project</th><th>GC</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead><tbody>'
+   +T.bids.map(function(b){return '<tr><td><b>'+b.p+'</b></td><td>'+b.gc+'</td><td>'+pill(b.s)+'</td><td class="amt">'+money(b.amt)+'</td></tr>';}).join("")
+   +'</tbody></table></div>'
+   +'<div class="grid"><div class="card"><h2>🔥 Hot replies</h2><ul class="list">'+T.hot.map(function(h){return '<li>'+h+'</li>';}).join("")+'</ul></div>'
+   +'<div class="card"><h2>🟢 Do now this week</h2><ul class="list">'+T.doNow.map(function(d){return '<li>'+d+'</li>';}).join("")+'</ul></div></div>';
+}
+function renderDB(){
+  var rows=T.companies.map(function(co,i){return '<tr data-s="'+(co.n+' '+(co.c||'')+' '+(co.e||'')+' '+(co.h||'')+' '+co.s).toLowerCase()+'">'
+    +'<td><b>'+co.n+'</b>'+(co.h?'<div class="note">'+co.h+'</div>':'')+'</td>'
+    +'<td>'+(co.c||'—')+'<div class="note">'+(co.e||'')+'</div></td>'
+    +'<td>'+pill(co.s)+'</td>'
+    +'<td>'+(co.e?'<a class="btn" href="'+mailtoFor(co)+'">✉️ Email</a>':'—')+'</td></tr>';}).join("");
+  return '<div class="card"><h2>📇 Contact database · '+T.companies.length+' companies</h2>'
+   +'<input class="search" id="q" placeholder="Search company, contact, status…" oninput="filterDB()" />'
+   +'<table><thead><tr><th>Company</th><th>Contact</th><th>Status</th><th>Action</th></tr></thead><tbody id="dbbody">'+rows+'</tbody></table></div>';
+}
+function filterDB(){var q=document.getElementById('q').value.toLowerCase();
+  Array.prototype.forEach.call(document.querySelectorAll('#dbbody tr'),function(tr){tr.style.display=tr.getAttribute('data-s').indexOf(q)>-1?'':'none';});}
+function renderEmail(){
+  var cad='<div class="cad">'+T.cadence.map(function(c){return '<div><b>'+c.d+'</b>'+c.t+'</div>';}).join("")+'</div>';
+  var tmpls=T.templates.map(function(t){return '<div class="tmpl"><div class="top"><span class="day">'+t.day+'</span>'
+    +'<span class="btn" onclick="copyT('+t.id+')">Copy</span></div>'
+    +'<div class="subj">Subject: <b>'+t.subj+'</b></div><pre id="t'+t.id+'">'+t.body+'</pre></div>';}).join("");
+  var ops='<ul class="list">'+T.ops.map(function(o){return '<li>'+o+'</li>';}).join("")+'</ul>';
+  return '<div class="card"><h2>📧 The cadence — 4 touches / 14 days</h2>'+cad
+   +'<p class="note">Stop on any reply → move to <b>Replied</b>. Per-company, not per-permit. One ask, name their project, always include phone.</p></div>'
+   +'<div class="card"><h2>✍️ Templates (your real voice)</h2>'+tmpls+'</div>'
+   +'<div class="card"><h2>⚙️ Operating rules (throughput & safety)</h2>'+ops+'</div>';
+}
+function copyT(id){var el=document.getElementById('t'+id);navigator.clipboard.writeText(el.textContent).then(function(){
+  event.target.textContent='Copied ✓';setTimeout(function(){event.target.textContent='Copy';},1500);});}
+
+function show(tab){
+  ['dash','db','email'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.toggle('on',t===tab);
+    document.getElementById('nav-'+t).classList.toggle('on',t===tab);});
+}
 function render(){
-  var k=TBG.kpis;
-  var html=''
-    +'<header><h1>TBG <span>·</span> Cold-Approach Dashboard</h1>'
-    +'<span class="sub">Live data · updated '+TBG.updated+'</span></header>'
-    +'<div class="kpis">'
-    +'<div class="kpi money"><div class="v">$'+(k.pipeline/1e6).toFixed(2)+'M</div><div class="l">Active pipeline</div></div>'
-    +'<div class="kpi win"><div class="v">'+money(k.won)+'</div><div class="l">Won</div></div>'
-    +'<div class="kpi"><div class="v">'+k.bids+'</div><div class="l">Bids / pursuits</div></div>'
-    +'<div class="kpi"><div class="v">'+k.companies+'</div><div class="l">Companies</div></div>'
-    +'<div class="kpi"><div class="v">'+k.replyRate+'</div><div class="l">Reply rate</div></div>'
-    +'<div class="kpi win"><div class="v">'+k.winRate+'</div><div class="l">Win rate</div></div>'
-    +'</div>'
-    +'<div class="grid">'
-    +'<div class="card"><h2>Bids by status</h2>'+bars(TBG.bidsByStatus)+'</div>'
-    +'<div class="card"><h2>Outreach funnel (79 GCs)</h2>'+bars(TBG.outreach)+'</div>'
-    +'</div>'
-    +'<div class="card"><h2>💰 Bids / pipeline</h2><table><thead><tr><th>Project</th><th>GC</th><th>Status</th><th style="text-align:right">Amount</th></tr></thead><tbody>'
-    +TBG.bids.map(function(b){return '<tr><td><b>'+b.p+'</b></td><td>'+b.gc+'</td><td><span class="pill '+statusClass(b.s)+'">'+b.s+'</span></td><td class="amt">'+money(b.amt)+'</td></tr>';}).join("")
-    +'</tbody></table></div>'
-    +'<div class="grid">'
-    +'<div class="card"><h2>🔥 Hot replies</h2><ul class="list">'+TBG.hot.map(function(h){return '<li>'+h+'</li>';}).join("")+'</ul></div>'
-    +'<div class="card"><h2>🟢 Do now this week</h2><ul class="list">'+TBG.doNow.map(function(d){return '<li>'+d+'</li>';}).join("")+'</ul></div>'
-    +'</div>'
-    +'<footer>Twin Brothers Group LLC · internal sales dashboard · data from Claude Cowork trackers<br>Snapshot — edit the DATA block / redeploy to refresh.</footer>';
-  document.getElementById('app').innerHTML=html;
+  document.getElementById('app').innerHTML=''
+   +'<header><h1>TBG <span>·</span> Cold Email System</h1><span class="sub">🔓 decrypted · updated '+T.updated+'</span></header>'
+   +'<nav><button id="nav-dash" class="on" onclick="show(\'dash\')">📊 Dashboard</button>'
+   +'<button id="nav-db" onclick="show(\'db\')">📇 Database</button>'
+   +'<button id="nav-email" onclick="show(\'email\')">📧 Email System</button></nav>'
+   +'<div id="tab-dash" class="tab on">'+renderDash()+'</div>'
+   +'<div id="tab-db" class="tab">'+renderDB()+'</div>'
+   +'<div id="tab-email" class="tab">'+renderEmail()+'</div>'
+   +'<footer>Twin Brothers Group LLC · encrypted internal system · 14205 SE 36th St, Ste 100, Bellevue WA 98006</footer>';
 }
-
-var PASS="twin2026"; // change this to your team passcode
-function open_(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';render();}
-function checkCode(){
-  if(document.getElementById('code').value===PASS){try{localStorage.setItem('tbg_dash','1');}catch(e){}open_();}
-  else{document.getElementById('code').value='';document.getElementById('code').placeholder='try again';}
-}
-document.getElementById('code').addEventListener('keydown',function(e){if(e.key==='Enter')checkCode();});
-try{if(localStorage.getItem('tbg_dash')==='1')open_();}catch(e){}
+async function unlock(){var p=document.getElementById('code').value,e=document.getElementById('err');e.textContent='decrypting…';
+  try{T=await decrypt(p);try{sessionStorage.setItem('tbg_pw',p);}catch(x){}
+    document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';render();
+  }catch(err){e.textContent='Wrong password.';document.getElementById('code').value='';}}
+document.getElementById('code').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+try{var sp=sessionStorage.getItem('tbg_pw');if(sp){document.getElementById('code').value=sp;unlock();}}catch(e){}
 </script>
 </body>
 </html>
