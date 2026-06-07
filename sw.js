@@ -1,8 +1,9 @@
-var CACHE = 'tbg-v1';
+var CACHE = 'tbg-v2';
 var ASSETS = [
   '/', '/about', '/services', '/portfolio', '/contact',
   '/commercial-framing', '/residential-framing',
-  '/styles.css', '/main.js', '/manifest.json', '/icons/icon.svg'
+  '/styles.css', '/main.js', '/manifest.json', '/icons/icon.svg',
+  '/walkins', '/walkins.js', '/walkins-data.js', '/walkins.webmanifest'
 ];
 
 self.addEventListener('install', function (e) {
