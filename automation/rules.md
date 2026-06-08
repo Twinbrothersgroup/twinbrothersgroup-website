@@ -20,16 +20,22 @@ alterations) + whether a real decision maker email was found. The permit fetcher
 Companies tied to a fresh permit always outrank generic builders with no active project.
 
 ## Lead sourcing (free hybrid, daily)
-- **Permits = the hot signal + the hook.** Pull permits filed in the last ~3 days each morning:
-  - Seattle: `node automation/fetch-permits.mjs 3` (structured Socrata feed).
-  - King County: public permit portal / Permit Search at kingcounty.gov (web).
-  - Snohomish County: SnoCo permit portal at snohomishcountywa.gov (web).
-- **Permits name the project, not the builder.** For each top project, find the builder, developer,
-  or GC and a real contact email online (company website, BuildZoom, MBAKS/NARI member pages, LinkedIn).
-- **Backlog buffer:** keep at least ~100 scored, un contacted companies in the CRM so 20 new always go
-  out. If a day's fresh permits yield fewer than 20 contactable builders, top up from the CRM backlog
-  (Status `Not Contacted`, highest Tier first) and by discovering more WA builders online.
-- One company = one lead (per company, not per permit). Lead with their biggest or newest project.
+Reliable free path: keep a growing **Builder Directory** of WA GCs, developers, and custom builders
+(companies whose contact info IS findable online), and use **permits as the hot signal, ranking, and hook**.
+- **New leads come from the directory** (companies you can actually reach):
+  - Start with the ~79 GCs already in the CRM.
+  - Each morning, expand it: find more active WA builders / developers from public directories
+    (Master Builders MBAKS, NARI, BuildZoom WA profiles, GC association member lists, Google), get a real
+    contact email from each company site, add them to the CRM as `Not Contacted`.
+- **Permits rank and personalize** (Seattle + King + Snohomish):
+  - Pull recent permits each morning (Seattle via `fetch-permits.mjs`; King + Snohomish via their portals).
+  - If a permit matches a directory company by builder or owner name, OR a permit publicly names a builder,
+    boost that company to the TOP of today's queue and attach the project as the cold email hook.
+  - When a permit names a builder not yet in the directory, look them up and add them (hot, top).
+- **Why this direction:** free permit feeds name the project but NOT the builder, and reverse finding the
+  builder from a bare address is low yield (tested). Starting from the company, then finding its contact, is
+  what actually reaches people. Permits make the known companies hot and give the personalized hook.
+- **Backlog buffer:** keep at least ~100 `Not Contacted` companies so 20 new always go out, permit matched first.
 
 ## Voice and style (hard rules)
 - Personalize every email. In the cold email, name their specific project or permit in the first line.

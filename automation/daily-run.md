@@ -30,21 +30,24 @@ add more new to reach 50; never exceed 50).
 - Aging out: any lead with Sequence Step `Done`, no reply, and Last Touch 3+ days ago -> Status `Nurture`.
 
 ## Step 3 — New leads (fill the remainder, target 20, highest score first)
-1. Pull permit signals:
+1. Pull permits (signal + hook), last ~3 days:
    - Seattle: run `node automation/fetch-permits.mjs 3` (JSON on stdout, already scored).
-   - King County: pull recent permits from the county permit search at kingcounty.gov (web).
-   - Snohomish County: pull recent permits from the SnoCo permit portal at snohomishcountywa.gov (web).
-2. For the top scored projects, identify the builder / developer / GC and find a real contact email
-   online (company website, BuildZoom, MBAKS or NARI member directories, LinkedIn). Prefer a named person.
-3. Dedupe: skip any company already in the CRM. Skip suppressed / Dead companies.
-4. Take the top ones (highest score) until you reach 20 new. If permit derived contactable builders run
-   short, top up from the CRM backlog (Status `Not Contacted`, highest Tier first) and by finding more
-   active WA builders online.
+   - King County: recent permits from the county permit search at kingcounty.gov (web).
+   - Snohomish County: recent permits from the SnoCo permit portal at snohomishcountywa.gov (web).
+   Keep this scored project list for matching + hooks.
+2. Build today's new lead queue from the **Builder Directory** (CRM companies, Status `Not Contacted`):
+   - Rank companies that MATCH a fresh permit (by builder or owner name) to the TOP, attach the project hook.
+   - Fill the rest from the highest Tier `Not Contacted` companies.
+   - If the directory is thin (fewer than ~20 good ones), expand it now: find more active WA builders /
+     developers online (MBAKS, NARI, BuildZoom, Google), get a real contact email, add them as `Not Contacted`.
+   - If a permit publicly names a builder not in the CRM, look up their email and add them (hot, top).
+3. Dedupe; skip suppressed / Dead / already contacted companies.
+4. Take the top 20 (permit matched first, then Tier / score).
 5. For each new lead:
-   - Create a CRM row: Company, Owner / Contact, Email, Region, Tier (A if score high, else B/C),
-     Notes = the permit hook, Status `Contacted`, Sequence Step `Cold`, Touch # 1, Emails Sent 1,
+   - Ensure a CRM row exists: Company, Owner / Contact, Email, Region, Tier, Notes = the hook (matched
+     project if any, else why they fit), Status `Contacted`, Sequence Step `Cold`, Touch # 1, Emails Sent 1,
      Last Touch = today, Next Touch = today + 3.
-   - Draft the Touch 1 cold email, naming their specific project in the first line. No dashes. Signature block.
+   - Draft the Touch 1 cold email: if permit matched, name their project in line 1; else reference recent work. No dashes. Signature block.
      Create the Gmail DRAFT.
 
 ## Step 4 — Guardrails (always)
