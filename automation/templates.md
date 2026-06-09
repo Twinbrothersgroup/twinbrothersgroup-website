@@ -1,14 +1,14 @@
 # TBG Email Templates (humanized, zero dashes)
 
 Fill the `[brackets]`. Keep Rafael's voice: short, plain, one ask, name their project.
-Hard rule: no hyphen or dash characters anywhere. Phone is written 321.200.7304.
+Hard rule: no hyphen or dash characters anywhere. Phone is written 425.240.0885.
 Every email ends with the signature + address + opt out block below.
 
 ## Signature block (paste on every email)
 ```
 Rafael Cabrera
 Twin Brothers Group LLC
-321.200.7304
+425.240.0885
 www.TwinBrothersGroup.com
 14205 SE 36th St, Suite 100, Bellevue WA 98006
 Reply stop and we will leave you alone.

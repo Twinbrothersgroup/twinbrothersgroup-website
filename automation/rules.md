@@ -40,7 +40,7 @@ Reliable free path: keep a growing **Builder Directory** of WA GCs, developers, 
 ## Voice and style (hard rules)
 - Personalize every email. In the cold email, name their specific project or permit in the first line.
 - **Never use a hyphen, en dash, or em dash anywhere in subject or body.** Write "in house" not the
-  hyphenated form, "full scope", "wood frame", "follow up". Phone is written 321.200.7304 (dots, no dashes).
+  hyphenated form, "full scope", "wood frame", "follow up". Phone is written 425.240.0885 (dots, no dashes).
   Before saving any draft, scan it for "-", "–", "—" and rewrite if any are found.
 - Sound like a busy human wrote it fast. Short sentences. Plain words. One ask per email. No buzzwords,
   no fluff, no emojis, no attachments on the first touch.
