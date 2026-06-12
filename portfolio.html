@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Framing Portfolio | Twin Brothers Group | Seattle WA Projects</title>
-  <meta name="description" content="See Twin Brothers Group's framing work — commercial buildings, multifamily apartments, and custom homes across Seattle, Bellevue, Kirkland & the Greater Seattle Area." />
+  <meta name="description" content="Real framing projects by Twin Brothers Group — multifamily apartments, townhomes, ADUs & commercial buildings across Seattle, King & Snohomish County. Drone photos from our own jobsites." />
   <link rel="canonical" href="https://www.twinbrothersgroup.com/portfolio.html" />
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
@@ -15,21 +15,52 @@
   <link rel="manifest" href="/site.webmanifest?v=2" />
   <meta name="theme-color" content="#cc1414" />
 
-  <meta property="og:image" content="https://www.twinbrothersgroup.com/android-chrome-512x512.png?v=3" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
-  <meta property="og:image:alt" content="Twin Brothers Group logo" />
-  <meta name="twitter:image" content="https://www.twinbrothersgroup.com/android-chrome-512x512.png?v=3" />
-  <meta name="twitter:image:alt" content="Twin Brothers Group logo" />
-  <meta property="og:title" content="Project Portfolio | Twin Brothers Group | Seattle Framing Subcontractor" />
-  <meta property="og:description" content="Real framing projects by Twin Brothers Group across the Greater Seattle Area. Commercial, multifamily, and residential." />
+  <link rel="preload" as="image" href="/images/projects/tbg_site_14.jpg" />
+
+  <meta property="og:image" content="https://www.twinbrothersgroup.com/images/projects/tbg_site_14.jpg" />
+  <meta property="og:image:width" content="1800" />
+  <meta property="og:image:height" content="1350" />
+  <meta property="og:image:alt" content="Aerial view of a three-story multifamily building framed by Twin Brothers Group" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.twinbrothersgroup.com/images/projects/tbg_site_14.jpg" />
+  <meta name="twitter:image:alt" content="Aerial view of a three-story multifamily building framed by Twin Brothers Group" />
+  <meta property="og:title" content="Framing Portfolio | Twin Brothers Group | Seattle WA" />
+  <meta property="og:description" content="Drone photos from real TBG jobsites — multifamily, townhomes, ADUs & commercial framing across the Greater Seattle Area." />
   <meta property="og:url" content="https://www.twinbrothersgroup.com/portfolio.html" />
   <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Twin Brothers Group Framing Portfolio",
+    "description": "Aerial photographs of framing projects self-performed by Twin Brothers Group across the Greater Seattle Area.",
+    "url": "https://www.twinbrothersgroup.com/portfolio.html",
+    "publisher": {
+      "@type": "GeneralContractor",
+      "name": "Twin Brothers Group",
+      "telephone": "+1-425-829-5660",
+      "url": "https://www.twinbrothersgroup.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Bellevue", "addressRegion": "WA", "addressCountry": "US" }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.twinbrothersgroup.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.twinbrothersgroup.com/portfolio.html" }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --red: #cc1414; --black: #0a0a0a; --dark: #111111;
       --gray: #1c1c1c; --light: #e8e8e8; --muted: #888888; --white: #ffffff;
+      --lumber: #c89a5e; --line: #2a2a2a;
+      --mono: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--black); color: var(--light); line-height: 1.6; }
@@ -37,13 +68,8 @@
     a:hover { text-decoration: underline; }
     img { max-width: 100%; display: block; }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,10,0.97); border-bottom: 2px solid var(--red);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%; height: 64px;
-    }
+    /* NAV (site standard) */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.97); border-bottom: 2px solid var(--red); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 64px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
     .nav-logo span { color: var(--red); }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
@@ -53,86 +79,107 @@
     .nav-cta:hover { background: #a80f0f; text-decoration: none !important; }
     .nav-logo-img { height: 38px; width: auto; display: block; }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    @media (max-width: 768px) {
+      nav { position: relative; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.99); border-bottom: 2px solid var(--red); padding: 1.5rem 5%; gap: 1.2rem; z-index: 999; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+    }
 
-    /* HERO */
-    .hero { position: relative; min-height: 380px; display: flex; align-items: center; overflow: hidden; background: var(--dark); }
-    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.28; z-index: 0; }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 4rem 5%; }
-    .hero-eyebrow { display: inline-block; background: var(--red); color: var(--white); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 3px; margin-bottom: 1.2rem; }
-    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1rem; }
-    .hero h1 span { color: var(--red); }
-    .hero p { font-size: 1.1rem; color: #ccc; max-width: 520px; }
+    /* ============ PLAN-SET PORTFOLIO ============ */
 
-    /* TRUST BAR */
-    .trust-bar { background: var(--gray); border-bottom: 1px solid #2a2a2a; padding: 1.2rem 5%; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--light); }
-    .trust-icon { color: var(--red); font-weight: 900; font-size: 1.1rem; }
+    /* annotation label — the monospace plan callout used throughout */
+    .callout { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lumber); }
+    .callout::before { content: "— "; color: var(--red); }
 
-    /* FILTER TABS */
-    .filter-section { padding: 3rem 5% 1rem; }
-    .filter-tabs { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .filter-btn { background: var(--gray); border: 1px solid #333; color: var(--muted); padding: 0.5rem 1.2rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-    .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+    /* HERO: full-bleed photo with drawing title block */
+    .p-hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; overflow: hidden; background: var(--dark); }
+    .p-hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .p-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.05) 35%, rgba(10,10,10,0.78) 88%); }
+    .p-hero-inner { position: relative; z-index: 2; width: 100%; padding: 0 5% 0; }
+    .p-hero h1 { font-size: clamp(2.4rem, 6.5vw, 5rem); font-weight: 900; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; color: var(--white); max-width: 900px; }
+    .p-hero h1 span { color: var(--red); }
+    .p-hero .lede { margin: 1.2rem 0 2.2rem; font-size: 1.05rem; color: #d5d2cc; max-width: 560px; }
 
-    /* PORTFOLIO GRID */
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 0 5% 5rem; }
-    .project-card { background: var(--gray); border: 1px solid #2a2a2a; border-radius: 6px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
-    .project-card:hover { transform: translateY(-4px); border-color: var(--red); }
-    .project-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
-    .project-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .project-card:hover .project-card-img img { transform: scale(1.05); }
-    .project-tag { position: absolute; top: 12px; left: 12px; background: var(--red); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 3px; }
-    .project-card-body { padding: 1.5rem; }
-    .project-card-body h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
-    .project-card-body p { font-size: 0.85rem; color: #999; line-height: 1.5; }
-    .project-meta { display: flex; gap: 1rem; margin-top: 0.8rem; }
-    .project-meta span { font-size: 0.78rem; color: var(--muted); }
-    .project-meta strong { color: var(--light); }
+    /* the title block: a drawing-sheet strip across the hero bottom */
+    .titleblock { display: grid; grid-template-columns: repeat(4, 1fr) auto; border: 1px solid var(--line); border-bottom: none; background: rgba(10,10,10,0.92); backdrop-filter: blur(4px); }
+    .tb-cell { padding: 0.9rem 1.2rem; border-right: 1px solid var(--line); }
+    .tb-cell:last-child { border-right: none; display: flex; align-items: center; padding: 0.9rem 1.4rem; }
+    .tb-k { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+    .tb-v { font-size: 0.95rem; font-weight: 700; color: var(--white); white-space: nowrap; }
+    .tb-v em { font-style: normal; color: var(--lumber); }
+    .tb-cta { background: var(--red); color: var(--white); font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.4rem; border-radius: 3px; white-space: nowrap; }
+    .tb-cta:hover { background: #a80f0f; text-decoration: none; }
+    @media (max-width: 900px) {
+      .titleblock { grid-template-columns: 1fr 1fr; }
+      .tb-cell:last-child { grid-column: 1 / -1; border-top: 1px solid var(--line); justify-content: center; }
+      .p-hero { min-height: 64vh; }
+    }
 
-    /* FEATURED PROJECT */
-    .featured-section { background: var(--dark); padding: 5rem 5%; }
-    .section-eyebrow { display: inline-block; color: var(--red); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.8rem; }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; }
-    .section-intro { font-size: 1.05rem; color: #aaa; max-width: 640px; margin-bottom: 3rem; }
-    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .featured-img { border-radius: 6px; overflow: hidden; aspect-ratio: 4/3; }
-    .featured-img img { width: 100%; height: 100%; object-fit: cover; }
-    .featured-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-    .stat { border-left: 3px solid var(--red); padding-left: 1rem; }
-    .stat-num { font-size: 1.6rem; font-weight: 900; color: var(--white); }
-    .stat-label { font-size: 0.8rem; color: var(--muted); }
+    /* BUILD SEQUENCE — real construction order */
+    .sequence { padding: 5rem 5% 4rem; border-bottom: 1px solid var(--line); }
+    .sec-head { max-width: 760px; margin-bottom: 2.6rem; }
+    .sec-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); margin: 0.5rem 0 0.8rem; }
+    .sec-head p { color: #a9a59d; max-width: 600px; }
+    .seq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .seq-step { background: var(--black); }
+    .seq-step figure { position: relative; aspect-ratio: 4/3; overflow: hidden; margin: 0; }
+    .seq-step figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .seq-step:hover figure img { transform: scale(1.04); }
+    .seq-no { position: absolute; top: 0; left: 0; background: var(--red); color: var(--white); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; padding: 0.35rem 0.7rem; z-index: 2; }
+    .seq-body { padding: 1.1rem 1.2rem 1.4rem; }
+    .seq-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--white); margin-bottom: 0.35rem; }
+    .seq-body p { font-size: 0.84rem; color: #999; line-height: 1.55; }
+    @media (max-width: 900px) { .seq-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .seq-grid { grid-template-columns: 1fr; } }
+
+    /* PROJECT SHEETS — each photo as a drawing sheet */
+    .sheets { padding: 5rem 5%; display: flex; flex-direction: column; gap: 3.5rem; }
+    .sheet { border: 1px solid var(--line); background: var(--dark); }
+    .sheet figure { margin: 0; overflow: hidden; }
+    .sheet figure img { width: 100%; height: auto; max-height: 78vh; object-fit: cover; transition: transform 0.6s ease; }
+    .sheet:hover figure img { transform: scale(1.02); }
+    .sheet-tb { display: flex; flex-wrap: wrap; align-items: stretch; border-top: 1px solid var(--line); }
+    .sheet-no { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--white); background: var(--red); display: flex; align-items: center; padding: 0.8rem 1.1rem; }
+    .sheet-name { flex: 1 1 220px; padding: 0.7rem 1.2rem; border-right: 1px solid var(--line); }
+    .sheet-name h3 { font-size: 1.02rem; font-weight: 800; color: var(--white); }
+    .sheet-name .callout { font-size: 0.66rem; }
+    .sheet-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; padding: 0.7rem 1.2rem; }
+    .tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--light); border: 1px solid #3a3a3a; padding: 0.25rem 0.6rem; border-radius: 2px; white-space: nowrap; }
+    .tag.hot { border-color: var(--red); color: var(--red); }
+    .sheet-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+    @media (max-width: 900px) { .sheet-pair { grid-template-columns: 1fr; } }
+
+    /* ADU strip */
+    .adu-strip { padding: 0 5% 5rem; }
+    .adu-strip .sec-head { margin-bottom: 2rem; }
 
     /* CTA */
-    .cta-section { padding: 5rem 5%; text-align: center; background: var(--gray); }
-    .cta-section p { color: #aaa; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .p-cta { border-top: 1px solid var(--line); background: var(--dark); padding: 5rem 5%; text-align: center; }
+    .p-cta h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 900; text-transform: uppercase; color: var(--white); margin-bottom: 0.8rem; }
+    .p-cta h2 span { color: var(--red); }
+    .p-cta p { color: #a9a59d; max-width: 520px; margin: 0 auto 2rem; }
     .btn-primary { display: inline-block; background: var(--red); color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.85rem 2rem; border-radius: 4px; margin-right: 1rem; transition: background 0.2s; }
     .btn-primary:hover { background: #a80f0f; text-decoration: none; }
     .btn-outline { display: inline-block; border: 2px solid var(--light); color: var(--white); font-weight: 600; padding: 0.8rem 1.8rem; border-radius: 4px; transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--red); color: var(--red); text-decoration: none; }
 
-    /* FOOTER */
+    /* footer (site standard) */
     footer { background: var(--dark); border-top: 2px solid var(--red); padding: 2rem 5%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); text-decoration: none; }
+    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); }
     .footer-logo span { color: var(--red); }
     footer p { font-size: 0.82rem; color: var(--muted); }
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: 0.82rem; color: var(--muted); }
     .footer-links a:hover { color: var(--red); }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.99); border-bottom: 2px solid var(--red); padding: 1.5rem 5%; gap: 1.2rem; }
-      .nav-links.open { display: flex; }
-      .nav-hamburger { display: flex; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .featured-grid { grid-template-columns: 1fr; }
-      .featured-stats { grid-template-columns: 1fr 1fr; }
-      nav { position: relative; }
-    }
-    @media (max-width: 480px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .btn-primary, .btn-outline { display: block; width: 100%; text-align: center; margin: 0 0 1rem; }
+    /* scroll reveal — respects reduced motion */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .sheet:hover figure img, .seq-step:hover figure img { transform: none; }
     }
   </style>
 <!-- Google tag (gtag.js) -->
@@ -143,25 +190,10 @@
   gtag('js', new Date());
   gtag('config', 'G-0FHGEKQVWB');
 </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Twin Brothers Group",
-    "alternateName": "TBG",
-    "url": "https://www.twinbrothersgroup.com/",
-    "logo": "https://www.twinbrothersgroup.com/logo.png",
-    "image": "https://www.twinbrothersgroup.com/android-chrome-512x512.png",
-    "sameAs": [
-      "https://www.google.com/maps/search/Twin+Brothers+Group+Bellevue+WA"
-    ]
-  }
-  </script>
 </head>
 <body>
-
 <nav>
-  <a href="/" class="nav-logo"><img src="https://www.twinbrothersgroup.com/logo.png" alt="Twin Brothers Group Logo" class="nav-logo-img" /><span class="nav-logo-text">TWIN<span style="color:var(--red)">BROTHERS</span> GROUP</span></a>
+  <a href="/" class="nav-logo"><img src="https://www.twinbrothersgroup.com/logo.png" alt="TBG Logo" class="nav-logo-img" /> TWIN<span style="color:var(--red)">BROTHERS</span> GROUP</a>
   <div class="nav-links" id="nav-links">
     <a href="/">Home</a>
     <a href="/commercial-framing.html">Commercial</a>
@@ -178,182 +210,187 @@
   </div>
 </nav>
 
-<section class="hero">
-  <img class="hero-bg"
-    src="/images/projects/tbg_hero_drone2.jpg"
-    alt="Twin Brothers Group framing project in Seattle"
-    fetchpriority="high" decoding="async" />
-  <div class="hero-content">
-    <span class="hero-eyebrow">Our Work</span>
-    <h1>Built by <span>Twin Brothers</span> Group</h1>
-    <p>Commercial builds, multifamily developments, and custom homes across the Greater Seattle Area. Every project framed to spec, on time.</p>
+<!-- HERO: one photo, one claim, one title block -->
+<header class="p-hero">
+  <img class="bg" src="/images/projects/tbg_site_14.jpg"
+       alt="Aerial drone view of a three-story multifamily apartment building fully framed by Twin Brothers Group, Snohomish County WA"
+       fetchpriority="high" decoding="async" />
+  <div class="p-hero-inner">
+    <span class="callout">Field record · shot from our own jobsites</span>
+    <h1>We frame the buildings <span>Seattle lives in</span></h1>
+    <p class="lede">Every photo on this page is a TBG crew's work — no stock images, no other subs' frames. Drone shots, straight off the site.</p>
+    <div class="titleblock">
+      <div class="tb-cell"><div class="tb-k">Projects completed</div><div class="tb-v"><em>50+</em> since 2017</div></div>
+      <div class="tb-cell"><div class="tb-k">Scope</div><div class="tb-v">Self-performed framing</div></div>
+      <div class="tb-cell"><div class="tb-k">Territory</div><div class="tb-v">King · Snohomish · Pierce</div></div>
+      <div class="tb-cell"><div class="tb-k">Rating</div><div class="tb-v"><em>5.0</em> Google</div></div>
+      <div class="tb-cell"><a href="/#contact" class="tb-cta">Request a Bid</a></div>
+    </div>
+  </div>
+</header>
+
+<!-- BUILD SEQUENCE: real construction order, numbered because order is the information -->
+<section class="sequence">
+  <div class="sec-head">
+    <span class="callout">One site, slab to top-out</span>
+    <h2>How a frame goes up</h2>
+    <p>The same multifamily site across one season — the sequence every GC schedules around, and the part TBG owns.</p>
+  </div>
+  <div class="seq-grid">
+    <div class="seq-step reveal">
+      <figure><span class="seq-no">PHASE 01</span>
+        <img src="/images/projects/tbg_site_06.jpg" alt="TBG foreman directing layout on a graded multifamily building pad before framing" loading="lazy" width="1800" height="1350" />
+      </figure>
+      <div class="seq-body"><h3>Layout</h3><p>Pad graded, plates chalked, anchor bolts verified against the structural sheets before a single stick goes up.</p></div>
+    </div>
+    <div class="seq-step reveal">
+      <figure><span class="seq-no">PHASE 02</span>
+        <img src="/images/projects/tbg_site_10.jpg" alt="Top-down aerial of foundations with framed wall panels staged flat across the slab" loading="lazy" width="1800" height="1350" />
+      </figure>
+      <div class="seq-body"><h3>Panels staged</h3><p>Wall panels built and staged flat on the deck — crane time planned so lifts never wait on lumber.</p></div>
+    </div>
+    <div class="seq-step reveal">
+      <figure><span class="seq-no">PHASE 03</span>
+        <img src="/images/projects/tbg_site_16.jpg" alt="First-floor wall framing standing on slab with a completed framed building behind" loading="lazy" width="1800" height="1350" />
+      </figure>
+      <div class="seq-body"><h3>Walls up</h3><p>First lifts standing, shear walls nailed per schedule, next building already topped out behind.</p></div>
+    </div>
+    <div class="seq-step reveal">
+      <figure><span class="seq-no">PHASE 04</span>
+        <img src="/images/projects/tbg_site_01.jpg" alt="Three-story wood-frame apartment building fully framed and sheathed, aerial view" loading="lazy" width="1800" height="1350" />
+      </figure>
+      <div class="seq-body"><h3>Topped out</h3><p>Three stories framed, sheathed, and ready for inspection — handed off clean for MEP rough-in.</p></div>
+    </div>
   </div>
 </section>
 
-<div class="trust-bar">
-  <div class="trust-item"><span class="trust-icon">+</span> 50+ Projects Completed</div>
-  <div class="trust-item"><span class="trust-icon">+</span> Commercial &amp; Residential</div>
-  <div class="trust-item"><span class="trust-icon">+</span> King &amp; Snohomish County</div>
-  <div class="trust-item"><span class="trust-icon">+</span> 7+ Years Experience</div>
-</div>
+<!-- PROJECT SHEETS -->
+<section class="sheets">
+  <div class="sec-head">
+    <span class="callout">Selected work · 2025–2026</span>
+    <h2>The plan set, built</h2>
+    <p>Multifamily, townhome, and commercial frames across the Greater Seattle Area — each one delivered on the GC's schedule.</p>
+  </div>
 
-<!-- FEATURED PROJECT -->
-<section class="featured-section">
-  <span class="section-eyebrow">Featured Project</span>
-  <h2>Multifamily Development — Greater Seattle Area</h2>
-  <p class="section-intro">A full wood-frame multifamily project delivered on schedule. Twin Brothers Group handled all framing from foundation to roof, coordinating directly with the GC and MEP trades throughout.</p>
-  <div class="featured-grid">
-    <div class="featured-img">
-      <img src="/images/projects/tbg_project_07.jpg"
-           alt="Multifamily framing project by Twin Brothers Group Seattle" />
+  <article class="sheet reveal">
+    <figure><img src="/images/projects/tbg_site_14.jpg" alt="L-shaped three-story multifamily building framed by Twin Brothers Group with adjacent buildings under construction" loading="lazy" width="1800" height="1350" /></figure>
+    <div class="sheet-tb">
+      <div class="sheet-no">SHT&nbsp;P-01</div>
+      <div class="sheet-name"><h3>Garden Apartments — 3-Story Type V</h3><span class="callout">Snohomish County, WA</span></div>
+      <div class="sheet-meta"><span class="tag hot">Multifamily</span><span class="tag">Wood frame</span><span class="tag">Shear walls</span><span class="tag">Roof framing</span></div>
     </div>
-    <div>
-      <p style="color:#aaa; font-size:1.05rem; line-height:1.8;">This project required precision wood framing on a tight urban lot with shared-wall coordination. The team finished ahead of schedule, allowing the GC to accelerate rough-in trades by two weeks.</p>
-      <div class="featured-stats">
-        <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Bid turnaround</div></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">On-time delivery</div></div>
-        <div class="stat"><div class="stat-num">5★</div><div class="stat-label">GC satisfaction</div></div>
-        <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years experience</div></div>
+  </article>
+
+  <div class="sheet-pair">
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_site_03.jpg" alt="Close aerial of three-story sheathed building corner with crane and framed wall panels staged below" loading="lazy" width="1800" height="1350" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;P-02</div>
+        <div class="sheet-name"><h3>Panelized Walls, Crane-Set</h3><span class="callout">King County, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">Multifamily</span><span class="tag">Panelized</span></div>
       </div>
+    </article>
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_site_12.jpg" alt="Row of townhomes fully framed with boom truck delivering lumber, aerial view" loading="lazy" width="1800" height="1350" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;P-03</div>
+        <div class="sheet-name"><h3>Townhome Row — Repetitive Units</h3><span class="callout">Snohomish County, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">Townhomes</span><span class="tag">Party walls</span></div>
+      </div>
+    </article>
+  </div>
+
+  <article class="sheet reveal">
+    <figure><img src="/images/projects/tbg_site_08.jpg" alt="Wide aerial of multifamily site with foundations poured and framed wall panels staged across the pads" loading="lazy" width="1800" height="1350" /></figure>
+    <div class="sheet-tb">
+      <div class="sheet-no">SHT&nbsp;P-04</div>
+      <div class="sheet-name"><h3>Full-Site Mobilization</h3><span class="callout">Pierce County, WA</span></div>
+      <div class="sheet-meta"><span class="tag hot">Multifamily</span><span class="tag">Multi-building</span><span class="tag">Phased schedule</span></div>
     </div>
+  </article>
+
+  <div class="sheet-pair">
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_project_08.jpg" alt="Commercial framing project aerial view, Greater Seattle Area" loading="lazy" width="1600" height="1200" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;P-05</div>
+        <div class="sheet-name"><h3>Commercial Shell</h3><span class="callout">King County, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">Commercial</span><span class="tag">Engineered lumber</span></div>
+      </div>
+    </article>
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_project_01.jpg" alt="Custom residential framing project by Twin Brothers Group, King County WA" loading="lazy" width="1600" height="1200" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;P-06</div>
+        <div class="sheet-name"><h3>Custom Residence</h3><span class="callout">King County, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">Residential</span><span class="tag">Complex roof</span></div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- PORTFOLIO GRID -->
-<section class="filter-section">
-  <span class="section-eyebrow">All Projects</span>
-  <h2>Work Across the Greater Seattle Area</h2>
-  <div class="filter-tabs">
-    <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
-    <button class="filter-btn" onclick="filterProjects('commercial', this)">Commercial</button>
-    <button class="filter-btn" onclick="filterProjects('multifamily', this)">Multifamily</button>
-    <button class="filter-btn" onclick="filterProjects('residential', this)">Residential</button>
+<!-- ADU / DADU strip -->
+<section class="adu-strip">
+  <div class="sec-head">
+    <span class="callout">Small lots, same standard</span>
+    <h2>ADU &amp; DADU work</h2>
+    <p>Backyard cottages and additions get the same crews we send to 200-unit sites. <a href="/adu-dadu-framing.html">See the ADU &amp; DADU framing page →</a></p>
+  </div>
+  <div class="sheet-pair">
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_adu_01.jpg" alt="Detached ADU wall framing and floor deck on a tight backyard lot in West Seattle" loading="lazy" width="1600" height="1200" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;A-01</div>
+        <div class="sheet-name"><h3>Backyard DADU</h3><span class="callout">West Seattle, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">DADU</span><span class="tag">Tight access</span></div>
+      </div>
+    </article>
+    <article class="sheet reveal">
+      <figure><img src="/images/projects/tbg_adu_02.jpg" alt="Completed home addition with new elevated deck and stairs framed by Twin Brothers Group" loading="lazy" width="1600" height="1200" /></figure>
+      <div class="sheet-tb">
+        <div class="sheet-no">SHT&nbsp;A-02</div>
+        <div class="sheet-name"><h3>Addition + Elevated Deck</h3><span class="callout">Seattle Metro, WA</span></div>
+        <div class="sheet-meta"><span class="tag hot">Addition</span><span class="tag">Deck &amp; stairs</span></div>
+      </div>
+    </article>
   </div>
 </section>
 
-<div class="portfolio-grid" id="portfolio-grid">
+<!-- CTA -->
+<section class="p-cta">
+  <span class="callout">Next sheet: yours</span>
+  <h2>Your project, <span>framed right</span></h2>
+  <p>Send your plan set and get a detailed framing bid back within 48 hours — scope, exclusions, schedule, and crew plan included.</p>
+  <a href="/#contact" class="btn-primary">Request a Free Bid</a>
+  <a href="tel:4258295660" class="btn-outline">Call 425-829-5660</a>
+</section>
 
-  <div class="project-card" data-type="multifamily">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_07.jpg"
-           alt="Multifamily framing Seattle" loading="lazy" />
-      <span class="project-tag">Multifamily</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Multifamily Wood Frame — Seattle Area</h3>
-      <p>Full-scope wood framing for a mid-rise multifamily development. Tight schedule, coordinated with 4 MEP trades simultaneously.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Multifamily</span>
-        <span><strong>Location:</strong> King County</span>
-      </div>
-    </div>
+<footer>
+  <div class="footer-logo">TWIN<span>BROTHERS</span> GROUP</div>
+  <p>&copy; 2026 Twin Brothers Group LLC &middot; Licensed &amp; Insured &middot; Bellevue, WA 98006 &middot; <a href="tel:+14258295660">425-829-5660</a></p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/multifamily-framing.html">Multifamily</a>
+    <a href="/commercial-framing.html">Commercial</a>
+    <a href="/adu-dadu-framing.html">ADU &amp; DADU</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/contact.html">Contact</a>
   </div>
+</footer>
 
-  <div class="project-card" data-type="commercial">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_08.jpg"
-           alt="Commercial framing Greater Seattle" loading="lazy" />
-      <span class="project-tag">Commercial</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Commercial Build — Greater Seattle</h3>
-      <p>Office and retail mixed-use framing. Ground-floor commercial with residential above, coordinated to GC schedule from day one.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Commercial</span>
-        <span><strong>Location:</strong> Eastside WA</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="residential">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_01.jpg"
-           alt="Custom home framing Seattle WA" loading="lazy" />
-      <span class="project-tag">Residential</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Custom Home — King County</h3>
-      <p>Precision framing for a custom single-family home. Complex roofline, cathedral ceilings, and engineered lumber throughout.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Residential</span>
-        <span><strong>Location:</strong> King County</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="multifamily">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_02.jpg"
-           alt="Apartment framing Bellevue WA" loading="lazy" />
-      <span class="project-tag">Multifamily</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Apartment Complex — Bellevue WA</h3>
-      <p>Multi-story wood-frame apartment building on the Eastside. Delivered on schedule despite supply chain delays during construction.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Multifamily</span>
-        <span><strong>Location:</strong> Bellevue</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="commercial">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_05.jpg"
-           alt="Commercial framing Kirkland WA" loading="lazy" />
-      <span class="project-tag">Commercial</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Retail / Mixed-Use — Kirkland WA</h3>
-      <p>Ground-floor retail with two floors of office above. Steel stud exterior walls, wood-frame interior partitions and floor systems.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Commercial</span>
-        <span><strong>Location:</strong> Kirkland</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="residential">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_03.jpg"
-           alt="Custom framing Redmond WA" loading="lazy" />
-      <span class="project-tag">Residential</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Custom Home — Redmond WA</h3>
-      <p>High-end residential framing with open floor plan, large window openings, and complex structural beam layout. Tight lot, clean execution.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Residential</span>
-        <span><strong>Location:</strong> Redmond</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="multifamily">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_09.jpg"
-           alt="Multifamily framing aerial Seattle" loading="lazy" />
-      <span class="project-tag">Multifamily</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Multifamily Podium — Seattle Metro</h3>
-      <p>Aerial drone shot of an active multifamily framing site. Full structural wood framing over a concrete podium — 5-story, 120-unit building.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Multifamily</span>
-        <span><strong>Location:</strong> Seattle Metro</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card" data-type="commercial">
-    <div class="project-card-img">
-      <img src="/images/projects/tbg_project_10.jpg"
-           alt="Commercial framing Bellevue WA aerial" loading="lazy" />
-      <span class="project-tag">Commercial</span>
-    </div>
-    <div class="project-card-body">
-      <h3>Commercial Build — Bellevue WA</h3>
-      <p>Drone overview of a mid-rise commercial framing scope. Steel-stud exterior, engineered wood interior systems, completed on schedule for GC handoff.</p>
-      <div class="project-meta">
-        <span><strong>Type:</strong> Commercial</span>
-      
+<script>
+function toggleNav() {
+  var nav = document.getElementById('nav-links');
+  nav.classList.toggle('open');
+}
+// scroll reveal
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
