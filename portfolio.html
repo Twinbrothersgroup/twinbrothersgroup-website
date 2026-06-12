@@ -1,199 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="zkGdwEhzd6xfY2iyDqo965jS4lX8O1d4cgMbP_86a8E" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Our Projects | Twin Brothers Group — Framing Portfolio Seattle</title>
-  <meta name="description" content="Browse Twin Brothers Group's framing project portfolio — commercial and residential framing projects across the Greater Seattle Area, WA. Multifamily, custom homes, and more." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.twinbrothersgroup.com/portfolio" />
-
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json" />
+  <title>Framing Portfolio | Twin Brothers Group | Seattle WA Projects</title>
+  <meta name="description" content="See Twin Brothers Group's framing work — commercial buildings, multifamily apartments, and custom homes across Seattle, Bellevue, Kirkland & the Greater Seattle Area." />
+  <link rel="canonical" href="https://www.twinbrothersgroup.com/portfolio.html" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest?v=2" />
   <meta name="theme-color" content="#cc1414" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="TBG" />
-  <link rel="apple-touch-icon" href="/icons/icon.svg" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Our Projects | Twin Brothers Group Framing Portfolio" />
-  <meta property="og:description" content="Commercial and residential framing projects across the Greater Seattle Area by Twin Brothers Group." />
+  <meta property="og:image" content="https://www.twinbrothersgroup.com/android-chrome-512x512.png?v=3" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Twin Brothers Group logo" />
+  <meta name="twitter:image" content="https://www.twinbrothersgroup.com/android-chrome-512x512.png?v=3" />
+  <meta name="twitter:image:alt" content="Twin Brothers Group logo" />
+  <meta property="og:title" content="Project Portfolio | Twin Brothers Group | Seattle Framing Subcontractor" />
+  <meta property="og:description" content="Real framing projects by Twin Brothers Group across the Greater Seattle Area. Commercial, multifamily, and residential." />
+  <meta property="og:url" content="https://www.twinbrothersgroup.com/portfolio.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.twinbrothersgroup.com/portfolio" />
-  <meta property="og:image" content="https://static.wixstatic.com/media/c39b27_e92d7e9b2bc441e1ba1f5cbee9e84b31~mv2.png/v1/fill/w_1200,h_630,al_c,q_85,enc_avif,quality_auto/c39b27_e92d7e9b2bc441e1ba1f5cbee9e84b31~mv2.png" />
-  <meta property="og:site_name" content="Twin Brothers Group" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Our Projects | Twin Brothers Group Framing Portfolio" />
-  <meta name="twitter:description" content="Commercial and residential framing projects across the Greater Seattle Area." />
-
-  <!-- Schema: BreadcrumbList + ItemList -->
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.twinbrothersgroup.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Our Projects", "item": "https://www.twinbrothersgroup.com/portfolio"}
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Twin Brothers Group Framing Projects",
-      "description": "Commercial and residential framing projects in the Greater Seattle Area",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Multifamily Apartment Complex — Greater Seattle Area", "description": "Aerial view of multifamily apartment complex framed by Twin Brothers Group"},
-        {"@type": "ListItem", "position": 2, "name": "Commercial Framing Foundation — Aerial View", "description": "Commercial framing with boom lifts, aerial view"},
-        {"@type": "ListItem", "position": 3, "name": "Custom Single-Family Home — Seattle Area", "description": "Drone aerial of custom home framing"},
-        {"@type": "ListItem", "position": 4, "name": "Commercial Interior Framing — Greater Seattle Area", "description": "Large commercial interior framing project"},
-        {"@type": "ListItem", "position": 5, "name": "Residential Framing — Seattle WA", "description": "Precision residential framing work"},
-        {"@type": "ListItem", "position": 6, "name": "Multifamily Townhomes — King County WA", "description": "Multifamily townhome framing project"}
-      ]
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #cc1414; --black: #0a0a0a; --dark: #111111;
+      --gray: #1c1c1c; --light: #e8e8e8; --muted: #888888; --white: #ffffff;
     }
-  ]
-  </script>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--black); color: var(--light); line-height: 1.6; }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
 
-  <link rel="stylesheet" href="/styles.css" />
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.97); border-bottom: 2px solid var(--red);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; }
+    .nav-cta:hover { background: #a80f0f; text-decoration: none !important; }
+    .nav-logo-img { height: 38px; width: auto; display: block; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+
+    /* HERO */
+    .hero { position: relative; min-height: 380px; display: flex; align-items: center; overflow: hidden; background: var(--dark); }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.28; z-index: 0; }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 4rem 5%; }
+    .hero-eyebrow { display: inline-block; background: var(--red); color: var(--white); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 3px; margin-bottom: 1.2rem; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1rem; }
+    .hero h1 span { color: var(--red); }
+    .hero p { font-size: 1.1rem; color: #ccc; max-width: 520px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--gray); border-bottom: 1px solid #2a2a2a; padding: 1.2rem 5%; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--light); }
+    .trust-icon { color: var(--red); font-weight: 900; font-size: 1.1rem; }
+
+    /* FILTER TABS */
+    .filter-section { padding: 3rem 5% 1rem; }
+    .filter-tabs { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn { background: var(--gray); border: 1px solid #333; color: var(--muted); padding: 0.5rem 1.2rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 0 5% 5rem; }
+    .project-card { background: var(--gray); border: 1px solid #2a2a2a; border-radius: 6px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--red); }
+    .project-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .project-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .project-card:hover .project-card-img img { transform: scale(1.05); }
+    .project-tag { position: absolute; top: 12px; left: 12px; background: var(--red); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 3px; }
+    .project-card-body { padding: 1.5rem; }
+    .project-card-body h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+    .project-card-body p { font-size: 0.85rem; color: #999; line-height: 1.5; }
+    .project-meta { display: flex; gap: 1rem; margin-top: 0.8rem; }
+    .project-meta span { font-size: 0.78rem; color: var(--muted); }
+    .project-meta strong { color: var(--light); }
+
+    /* FEATURED PROJECT */
+    .featured-section { background: var(--dark); padding: 5rem 5%; }
+    .section-eyebrow { display: inline-block; color: var(--red); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; }
+    .section-intro { font-size: 1.05rem; color: #aaa; max-width: 640px; margin-bottom: 3rem; }
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .featured-img { border-radius: 6px; overflow: hidden; aspect-ratio: 4/3; }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .stat { border-left: 3px solid var(--red); padding-left: 1rem; }
+    .stat-num { font-size: 1.6rem; font-weight: 900; color: var(--white); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-section { padding: 5rem 5%; text-align: center; background: var(--gray); }
+    .cta-section p { color: #aaa; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .btn-primary { display: inline-block; background: var(--red); color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.85rem 2rem; border-radius: 4px; margin-right: 1rem; transition: background 0.2s; }
+    .btn-primary:hover { background: #a80f0f; text-decoration: none; }
+    .btn-outline { display: inline-block; border: 2px solid var(--light); color: var(--white); font-weight: 600; padding: 0.8rem 1.8rem; border-radius: 4px; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); text-decoration: none; }
+
+    /* FOOTER */
+    footer { background: var(--dark); border-top: 2px solid var(--red); padding: 2rem 5%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--red); }
+    footer p { font-size: 0.82rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); }
+    .footer-links a:hover { color: var(--red); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,10,10,0.99); border-bottom: 2px solid var(--red); padding: 1.5rem 5%; gap: 1.2rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-stats { grid-template-columns: 1fr 1fr; }
+      nav { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .btn-primary, .btn-outline { display: block; width: 100%; text-align: center; margin: 0 0 1rem; }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FHGEKQVWB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0FHGEKQVWB');
+</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Twin Brothers Group",
+    "alternateName": "TBG",
+    "url": "https://www.twinbrothersgroup.com/",
+    "logo": "https://www.twinbrothersgroup.com/logo.png",
+    "image": "https://www.twinbrothersgroup.com/android-chrome-512x512.png",
+    "sameAs": [
+      "https://www.google.com/maps/search/Twin+Brothers+Group+Bellevue+WA"
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
-    <img src="https://static.wixstatic.com/media/c39b27_c1935f1796d0476bbd389030423de9c0~mv2.png/v1/fill/w_349,h_269,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo%20TBG%2C%20No%20background.png"
-         alt="Twin Brothers Group logo - Framing Contractors Seattle WA" />
-    <span>Twin Brothers Group</span>
-  </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/about">About Us</a></li>
-    <li><a href="/services">Framing Services</a></li>
-    <li><a href="/portfolio">Our Projects</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
-  <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+  <a href="/" class="nav-logo"><img src="https://www.twinbrothersgroup.com/logo.png" alt="Twin Brothers Group Logo" class="nav-logo-img" /><span class="nav-logo-text">TWIN<span style="color:var(--red)">BROTHERS</span> GROUP</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/">Home</a>
+    <a href="/commercial-framing.html">Commercial</a>
+    <a href="/multifamily-framing.html">Multifamily</a>
+    <a href="/adu-dadu-framing.html">ADU &amp; DADU</a>
+    <a href="/service-areas/">Service Areas</a>
+    <a href="/portfolio.html" class="active">Portfolio</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/blog/framing-cost-seattle.html">Blog</a>
+    <a href="/#contact" class="nav-cta">Get a Bid</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
-  </button>
-  <a href="/contact" class="nav-cta">Request a Bid</a>
+  </div>
 </nav>
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a>
-      <span class="breadcrumb-sep">/</span>
-      <span>Our Projects</span>
-    </nav>
-    <h1>Our <span>Framing Projects</span> Across the Greater Seattle Area</h1>
-    <p>From multifamily apartment complexes to custom single-family homes — here's a look at what Twin Brothers Group builds across King, Snohomish, and Pierce Counties.</p>
-    <div class="page-hero-actions">
-      <a href="/contact" class="btn-primary">Start Your Project &rarr;</a>
-    </div>
+<section class="hero">
+  <img class="hero-bg"
+    src="/images/projects/tbg_hero_drone2.jpg"
+    alt="Twin Brothers Group framing project in Seattle"
+    fetchpriority="high" decoding="async" />
+  <div class="hero-content">
+    <span class="hero-eyebrow">Our Work</span>
+    <h1>Built by <span>Twin Brothers</span> Group</h1>
+    <p>Commercial builds, multifamily developments, and custom homes across the Greater Seattle Area. Every project framed to spec, on time.</p>
   </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">+</span> 50+ Projects Completed</div>
+  <div class="trust-item"><span class="trust-icon">+</span> Commercial &amp; Residential</div>
+  <div class="trust-item"><span class="trust-icon">+</span> King &amp; Snohomish County</div>
+  <div class="trust-item"><span class="trust-icon">+</span> 7+ Years Experience</div>
 </div>
 
-<section class="portfolio">
-  <div class="section-header center">
-    <div class="section-label">Commercial Projects</div>
-    <h2 class="section-title">Commercial &amp; Multifamily Framing</h2>
-    <p class="section-sub">Large-scale commercial projects framed for GCs and developers across the Greater Seattle Area.</p>
-  </div>
-  <div class="portfolio-grid">
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Multifamily</span>
-      <img src="https://static.wixstatic.com/media/c39b27_e92d7e9b2bc441e1ba1f5cbee9e84b31~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_e92d7e9b2bc441e1ba1f5cbee9e84b31~mv2.png"
-           alt="Aerial view of multifamily apartment complex framed by Twin Brothers Group — commercial framing contractor Seattle WA"
-           loading="lazy" />
-      <div class="portfolio-item-label">Multifamily apartment complex — aerial view, Greater Seattle Area</div>
+<!-- FEATURED PROJECT -->
+<section class="featured-section">
+  <span class="section-eyebrow">Featured Project</span>
+  <h2>Multifamily Development — Greater Seattle Area</h2>
+  <p class="section-intro">A full wood-frame multifamily project delivered on schedule. Twin Brothers Group handled all framing from foundation to roof, coordinating directly with the GC and MEP trades throughout.</p>
+  <div class="featured-grid">
+    <div class="featured-img">
+      <img src="/images/projects/tbg_project_07.jpg"
+           alt="Multifamily framing project by Twin Brothers Group Seattle" />
     </div>
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Commercial</span>
-      <img src="https://static.wixstatic.com/media/c39b27_2f7d5f9c11304bb5b5dceafc0cb37b0f~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_2f7d5f9c11304bb5b5dceafc0cb37b0f~mv2.png"
-           alt="Aerial commercial framing foundation with boom lifts — Twin Brothers Group commercial framing Seattle"
-           loading="lazy" />
-      <div class="portfolio-item-label">Commercial framing with boom lifts — aerial view, King County</div>
-    </div>
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Commercial</span>
-      <img src="https://static.wixstatic.com/media/c39b27_cf0ee92d6b1d40478ccbd27c839c5ded~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_cf0ee92d6b1d40478ccbd27c839c5ded~mv2.png"
-           alt="Large commercial framing project by Twin Brothers Group — framing subcontractor Greater Seattle Area WA"
-           loading="lazy" />
-      <div class="portfolio-item-label">Commercial interior framing — Greater Seattle Area</div>
-    </div>
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Multifamily</span>
-      <img src="https://static.wixstatic.com/media/c39b27_cf0ee92d6b1d40478ccbd27c839c5ded~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_cf0ee92d6b1d40478ccbd27c839c5ded~mv2.png"
-           alt="Multifamily townhomes framing — Twin Brothers Group framing subcontractor King County WA"
-           loading="lazy" />
-      <div class="portfolio-item-label">Multifamily townhomes — King County, WA</div>
+    <div>
+      <p style="color:#aaa; font-size:1.05rem; line-height:1.8;">This project required precision wood framing on a tight urban lot with shared-wall coordination. The team finished ahead of schedule, allowing the GC to accelerate rough-in trades by two weeks.</p>
+      <div class="featured-stats">
+        <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Bid turnaround</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">On-time delivery</div></div>
+        <div class="stat"><div class="stat-num">5★</div><div class="stat-label">GC satisfaction</div></div>
+        <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years experience</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--dark);padding:80px 5%;">
-  <div class="section-header center">
-    <div class="section-label">Residential Projects</div>
-    <h2 class="section-title">Custom Home &amp; Residential Framing</h2>
-    <p class="section-sub">Custom homes and residential builds framed throughout the Greater Seattle Area.</p>
-  </div>
-  <div class="portfolio-grid">
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Residential</span>
-      <img src="https://static.wixstatic.com/media/c39b27_945abf57a86244389bdbd747b2f42f75~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_945abf57a86244389bdbd747b2f42f75~mv2.png"
-           alt="Custom single-family home framing by Twin Brothers Group — residential framing contractor Greater Seattle Area"
-           loading="lazy" />
-      <div class="portfolio-item-label">Custom single-family home — drone aerial view, Seattle area</div>
-    </div>
-    <div class="portfolio-item">
-      <span class="portfolio-badge">Residential</span>
-      <img src="https://static.wixstatic.com/media/c39b27_945abf57a86244389bdbd747b2f42f75~mv2.png/v1/fill/w_800,h_600,al_c,q_85,enc_avif,quality_auto/c39b27_945abf57a86244389bdbd747b2f42f75~mv2.png"
-           alt="Residential framing project — Twin Brothers Group framing contractor Seattle WA"
-           loading="lazy" />
-      <div class="portfolio-item-label">Residential framing — precision work, King County WA</div>
-    </div>
+<!-- PORTFOLIO GRID -->
+<section class="filter-section">
+  <span class="section-eyebrow">All Projects</span>
+  <h2>Work Across the Greater Seattle Area</h2>
+  <div class="filter-tabs">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+    <button class="filter-btn" onclick="filterProjects('commercial', this)">Commercial</button>
+    <button class="filter-btn" onclick="filterProjects('multifamily', this)">Multifamily</button>
+    <button class="filter-btn" onclick="filterProjects('residential', this)">Residential</button>
   </div>
 </section>
 
-<section class="cta-banner">
-  <h2>Want Your Project in Our Portfolio?</h2>
-  <p>Contact us today — we respond within 48 hours with a free, no-obligation bid.</p>
-  <a href="/contact" class="btn-white">Request a Free Bid &rarr;</a>
-</section>
+<div class="portfolio-grid" id="portfolio-grid">
 
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <img src="https://static.wixstatic.com/media/c39b27_c1935f1796d0476bbd389030423de9c0~mv2.png/v1/fill/w_349,h_269,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo%20TBG%2C%20No%20background.png"
-           alt="Twin Brothers Group - Framing Contractors Seattle WA logo" />
-      <p>Expert framing contractors serving the Greater Seattle Area since 2017. Commercial &amp; residential framing done right.</p>
+  <div class="project-card" data-type="multifamily">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_07.jpg"
+           alt="Multifamily framing Seattle" loading="lazy" />
+      <span class="project-tag">Multifamily</span>
     </div>
-    <div class="footer-col">
-      <span class="footer-heading">Services</span>
-      <ul>
-        <li><a href="/commercial-framing">Commercial Framing</a></li>
-        <li><a href="/residential-framing">Residential Framing</a></li>
-        <li><a href="/services">All Services</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <span class="footer-heading">Company</span>
-      <ul>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/portfolio">Our Projects</a></li>
-        <li><a href="/contact">Request a Bid</a></li>
-        <li><a href="tel:+14258295660">425-829-5660</a></li>
-        <li><a href="mailto:MoreInfo@twinbrothersgroup.com">Email Us</a></li>
-      </ul>
+    <div class="project-card-body">
+      <h3>Multifamily Wood Frame — Seattle Area</h3>
+      <p>Full-scope wood framing for a mid-rise multifamily development. Tight schedule, coordinated with 4 MEP trades simultaneously.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Multifamily</span>
+        <span><strong>Location:</strong> King County</span>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Twin Brothers Group LLC &middot; 14205 SE 36th St, Suite 100, Bellevue, WA 98006 &middot; All rights reserved.</p>
-    <p>Serving the Greater Seattle Area — Seattle, Bellevue, Kirkland, Redmond &amp; surrounding areas</p>
-  </div>
-</footer>
 
-<script src="/main.js" defer></script>
-</body>
-</html>
+  <div class="project-card" data-type="commercial">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_08.jpg"
+           alt="Commercial framing Greater Seattle" loading="lazy" />
+      <span class="project-tag">Commercial</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Commercial Build — Greater Seattle</h3>
+      <p>Office and retail mixed-use framing. Ground-floor commercial with residential above, coordinated to GC schedule from day one.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Commercial</span>
+        <span><strong>Location:</strong> Eastside WA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="residential">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_01.jpg"
+           alt="Custom home framing Seattle WA" loading="lazy" />
+      <span class="project-tag">Residential</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Custom Home — King County</h3>
+      <p>Precision framing for a custom single-family home. Complex roofline, cathedral ceilings, and engineered lumber throughout.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Residential</span>
+        <span><strong>Location:</strong> King County</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="multifamily">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_02.jpg"
+           alt="Apartment framing Bellevue WA" loading="lazy" />
+      <span class="project-tag">Multifamily</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Apartment Complex — Bellevue WA</h3>
+      <p>Multi-story wood-frame apartment building on the Eastside. Delivered on schedule despite supply chain delays during construction.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Multifamily</span>
+        <span><strong>Location:</strong> Bellevue</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="commercial">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_05.jpg"
+           alt="Commercial framing Kirkland WA" loading="lazy" />
+      <span class="project-tag">Commercial</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Retail / Mixed-Use — Kirkland WA</h3>
+      <p>Ground-floor retail with two floors of office above. Steel stud exterior walls, wood-frame interior partitions and floor systems.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Commercial</span>
+        <span><strong>Location:</strong> Kirkland</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="residential">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_03.jpg"
+           alt="Custom framing Redmond WA" loading="lazy" />
+      <span class="project-tag">Residential</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Custom Home — Redmond WA</h3>
+      <p>High-end residential framing with open floor plan, large window openings, and complex structural beam layout. Tight lot, clean execution.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Residential</span>
+        <span><strong>Location:</strong> Redmond</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="multifamily">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_09.jpg"
+           alt="Multifamily framing aerial Seattle" loading="lazy" />
+      <span class="project-tag">Multifamily</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Multifamily Podium — Seattle Metro</h3>
+      <p>Aerial drone shot of an active multifamily framing site. Full structural wood framing over a concrete podium — 5-story, 120-unit building.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Multifamily</span>
+        <span><strong>Location:</strong> Seattle Metro</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="commercial">
+    <div class="project-card-img">
+      <img src="/images/projects/tbg_project_10.jpg"
+           alt="Commercial framing Bellevue WA aerial" loading="lazy" />
+      <span class="project-tag">Commercial</span>
+    </div>
+    <div class="project-card-body">
+      <h3>Commercial Build — Bellevue WA</h3>
+      <p>Drone overview of a mid-rise commercial framing scope. Steel-stud exterior, engineered wood interior systems, completed on schedule for GC handoff.</p>
+      <div class="project-meta">
+        <span><strong>Type:</strong> Commercial</span>
+      

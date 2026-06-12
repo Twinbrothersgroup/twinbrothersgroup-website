@@ -2,44 +2,140 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.twinbrothersgroup.com/</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.twinbrothersgroup.com/about</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.twinbrothersgroup.com/commercial-framing.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/multifamily-framing.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/adu-dadu-framing.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/portfolio.html</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.twinbrothersgroup.com/services</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.twinbrothersgroup.com/capability-statement.html</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.twinbrothersgroup.com/commercial-framing</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.twinbrothersgroup.com/service-areas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.twinbrothersgroup.com/residential-framing</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.twinbrothersgroup.com/portfolio</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://www.twinbrothersgroup.com/service-areas/seattle.html</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.twinbrothersgroup.com/contact</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://www.twinbrothersgroup.com/service-areas/issaquah.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/sammamish.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/bellevue.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/kirkland.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/redmond.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/everett.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/renton.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/bothell.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/lynnwood.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/service-areas/tacoma.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/contact.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/faq.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/blog/framing-cost-seattle.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/blog/how-to-choose-framing-contractor-seattle.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.twinbrothersgroup.com/blog/wood-frame-multifamily-general-contractor-seattle.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
