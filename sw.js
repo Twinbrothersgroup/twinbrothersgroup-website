@@ -1,7 +1,8 @@
-var CACHE = 'tbg-v1';
+var CACHE = 'tbg-v2';
 var ASSETS = [
   '/', '/about', '/services', '/portfolio', '/contact',
   '/commercial-framing', '/residential-framing',
+  '/adu-framing', '/dadu-framing',
   '/styles.css', '/main.js', '/manifest.json', '/icons/icon.svg'
 ];
 
