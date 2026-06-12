@@ -114,7 +114,25 @@
     @media (max-width: 900px) {
       .titleblock { grid-template-columns: 1fr 1fr; }
       .tb-cell:last-child { grid-column: 1 / -1; border-top: 1px solid var(--line); justify-content: center; }
+      .tb-v { white-space: normal; font-size: 0.88rem; }
       .p-hero { min-height: 64vh; }
+    }
+    @media (max-width: 600px) {
+      .p-hero { min-height: 0; }
+      .p-hero-inner { padding-top: 14rem; }
+      .p-hero::after { background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.35) 30%, rgba(10,10,10,0.92) 62%, rgba(10,10,10,0.97) 100%); }
+      .p-hero h1 { font-size: clamp(1.9rem, 8.5vw, 2.4rem); }
+      .p-hero .lede { font-size: 0.95rem; margin-bottom: 1.6rem; }
+      .titleblock { grid-template-columns: 1fr 1fr; }
+      .tb-cell { padding: 0.7rem 0.8rem; }
+      .tb-v { font-size: 0.82rem; }
+      .sheets, .sequence { padding-left: 4%; padding-right: 4%; }
+      .sheets { gap: 2.2rem; }
+      .sheet-pair { gap: 2.2rem; }
+      .sheet figure img { max-height: 60vh; }
+      .sheet-name { border-right: none; }
+      footer { justify-content: center; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.2rem; }
     }
 
     /* BUILD SEQUENCE — real construction order */
