@@ -1,4 +1,4 @@
-var CACHE = 'tbg-v1';
+var CACHE = 'tbg-v2';
 var ASSETS = [
   '/', '/about', '/services', '/portfolio', '/contact',
   '/commercial-framing', '/residential-framing',
@@ -29,6 +29,18 @@ self.addEventListener('activate', function (e) {
 
 self.addEventListener('fetch', function (e) {
   if (e.request.method !== 'GET') return;
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request).then(function (res) {
+        if (res.ok) {
+          var copy = res.clone();
+          e.waitUntil(caches.open(CACHE).then(function (c) { return c.put(e.request, copy); }));
+        }
+        return res;
+      }).catch(function () { return caches.match(e.request); })
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(function (cached) {
       var network = fetch(e.request).then(function (res) {
