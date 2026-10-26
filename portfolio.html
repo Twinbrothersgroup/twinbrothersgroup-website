@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Framing Portfolio | Twin Brothers Group | Seattle WA Projects</title>
-  <meta name="description" content="Real framing projects by Twin Brothers Group — multifamily apartments, townhomes, ADUs & commercial buildings across Seattle, King & Snohomish County. Drone photos from our own jobsites." />
+  <meta name="description" content="See Twin Brothers Group framing photos from a Kirkland home and two DADUs, a Bellevue Factoria home, four Seattle duplexes, and two Tacoma homes." />
   <link rel="canonical" href="https://www.twinbrothersgroup.com/portfolio.html" />
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
@@ -17,15 +17,15 @@
 
   <link rel="preload" as="image" href="/images/projects/tbg_site_14.jpg" />
 
-  <meta property="og:image" content="https://www.twinbrothersgroup.com/images/projects/tbg_site_14.jpg" />
-  <meta property="og:image:width" content="1800" />
-  <meta property="og:image:height" content="1350" />
-  <meta property="og:image:alt" content="Aerial view of a three-story multifamily building framed by Twin Brothers Group" />
+  <meta property="og:image" content="https://www.twinbrothersgroup.com/images/projects/kirkland-house-two-dadus-framing-aerial.webp" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Aerial view of a Kirkland house and two DADUs during wood framing" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://www.twinbrothersgroup.com/images/projects/tbg_site_14.jpg" />
-  <meta name="twitter:image:alt" content="Aerial view of a three-story multifamily building framed by Twin Brothers Group" />
+  <meta name="twitter:image" content="https://www.twinbrothersgroup.com/images/projects/kirkland-house-two-dadus-framing-aerial.webp" />
+  <meta name="twitter:image:alt" content="Aerial view of a Kirkland house and two DADUs during wood framing" />
   <meta property="og:title" content="Framing Portfolio | Twin Brothers Group | Seattle WA" />
-  <meta property="og:description" content="Drone photos from real TBG jobsites — multifamily, townhomes, ADUs & commercial framing across the Greater Seattle Area." />
+  <meta property="og:description" content="Framing photos from TBG projects in Kirkland, Bellevue, Seattle, and Tacoma, plus more Puget Sound work." />
   <meta property="og:url" content="https://www.twinbrothersgroup.com/portfolio.html" />
   <meta property="og:type" content="website" />
   <script type="application/ld+json">
@@ -33,8 +33,14 @@
     "@context": "https://schema.org",
     "@type": "ImageGallery",
     "name": "Twin Brothers Group Framing Portfolio",
-    "description": "Aerial photographs of framing projects self-performed by Twin Brothers Group across the Greater Seattle Area.",
+    "description": "Framing photos from Twin Brothers Group projects in Kirkland, Bellevue, Seattle, and Tacoma, Washington.",
     "url": "https://www.twinbrothersgroup.com/portfolio.html",
+    "associatedMedia": [
+      { "@type": "ImageObject", "contentUrl": "https://www.twinbrothersgroup.com/images/projects/kirkland-house-two-dadus-framing-aerial.webp", "caption": "Aerial view of the Kirkland house and two DADUs during wood framing" },
+      { "@type": "ImageObject", "contentUrl": "https://www.twinbrothersgroup.com/images/projects/bellevue-factoria-single-family-framing-aerial.webp", "caption": "Wood floor and wall framing at a single-family home in Bellevue's Factoria area" },
+      { "@type": "ImageObject", "contentUrl": "https://www.twinbrothersgroup.com/images/projects/seattle-four-duplexes-wood-framing.webp", "caption": "Four Seattle duplexes with wood framing and sheathing in progress" },
+      { "@type": "ImageObject", "contentUrl": "https://www.twinbrothersgroup.com/images/projects/tacoma-two-homes-wood-framing.webp", "caption": "Two Tacoma homes during wood framing" }
+    ],
     "publisher": {
       "@type": "GeneralContractor",
       "name": "Twin Brothers Group",
@@ -169,6 +175,18 @@
     .sheet-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
     @media (max-width: 900px) { .sheet-pair { grid-template-columns: 1fr; } }
 
+    .recent-work { padding: 5rem 5%; border-bottom: 1px solid var(--line); }
+    .recent-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+    .recent-card { background: var(--dark); border: 1px solid var(--line); }
+    .recent-photos { display: grid; grid-template-columns: 2fr 1fr; gap: 4px; background: var(--line); height: 320px; }
+    .recent-photos.single { grid-template-columns: 1fr; }
+    .recent-photos img { width: 100%; height: 100%; object-fit: cover; }
+    .recent-copy { padding: 1.2rem 1.4rem 1.4rem; }
+    .recent-copy h3 { color: var(--white); font-size: 1.1rem; margin: 0.35rem 0; }
+    .recent-copy p { color: #a9a59d; font-size: 0.9rem; }
+    @media (max-width: 900px) { .recent-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 540px) { .recent-photos { height: 230px; } }
+
     /* ADU strip */
     .adu-strip { padding: 0 5% 5rem; }
     .adu-strip .sec-head { margin-bottom: 2rem; }
@@ -279,6 +297,44 @@
       </figure>
       <div class="seq-body"><h3>Topped out</h3><p>Three stories framed, sheathed, and ready for inspection — handed off clean for MEP rough-in.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- RECENT PROJECT PHOTOS: locations and project types are from TBG's labeled photo folders. -->
+<section class="recent-work" aria-labelledby="recent-work-heading">
+  <div class="sec-head">
+    <span class="callout">Project photos · 2026</span>
+    <h2 id="recent-work-heading">Framing across Puget Sound</h2>
+    <p>Progress photos from four TBG residential projects in Kirkland, Bellevue, Seattle, and Tacoma.</p>
+  </div>
+  <div class="recent-grid">
+    <article class="recent-card reveal">
+      <div class="recent-photos">
+        <img src="/images/projects/kirkland-house-two-dadus-framing-aerial.webp" alt="Aerial view of wood framing for a Kirkland house and two detached accessory dwelling units" width="1600" height="1200" loading="lazy" decoding="async" />
+        <img src="/images/projects/kirkland-dadu-exterior-framing-sheathing.webp" alt="Exterior wall sheathing and roof deck on a Kirkland DADU under construction" width="1600" height="1200" loading="lazy" decoding="async" />
+      </div>
+      <div class="recent-copy"><span class="callout">Kirkland, WA · House + 2 DADUs</span><h3>Kirkland residential framing</h3><p>Drone and close-up views of the house and detached units during framing.</p></div>
+    </article>
+    <article class="recent-card reveal">
+      <div class="recent-photos">
+        <img src="/images/projects/bellevue-factoria-single-family-framing-aerial.webp" alt="Aerial view of exposed wood joists and walls at a single-family home in Bellevue Factoria" width="1600" height="1200" loading="lazy" decoding="async" />
+        <img src="/images/projects/bellevue-factoria-home-floor-framing.webp" alt="Wood floor framing and wall panels at the Bellevue Factoria home" width="1600" height="1200" loading="lazy" decoding="async" />
+      </div>
+      <div class="recent-copy"><span class="callout">Bellevue Factoria, WA · Single-family home</span><h3>Factoria home framing</h3><p>Two aerial views show the floor system and exterior walls taking shape.</p></div>
+    </article>
+    <article class="recent-card reveal">
+      <div class="recent-photos">
+        <img src="/images/projects/seattle-four-duplexes-wood-framing.webp" alt="Street-level view of sheathed wood frames for four duplexes in Seattle" width="1200" height="1600" loading="lazy" decoding="async" />
+        <img src="/images/projects/seattle-duplex-roof-and-wall-framing.webp" alt="Roof and wall framing between the Seattle duplex buildings" width="1200" height="1600" loading="lazy" decoding="async" />
+      </div>
+      <div class="recent-copy"><span class="callout">Seattle, WA · Four duplexes</span><h3>Seattle duplex framing</h3><p>Street and upper-level views of the multi-building wood framing.</p></div>
+    </article>
+    <article class="recent-card reveal">
+      <div class="recent-photos single">
+        <img src="/images/projects/tacoma-two-homes-wood-framing.webp" alt="Two single-family homes with wood wall and roof framing in progress in Tacoma" width="1600" height="1200" loading="lazy" decoding="async" />
+      </div>
+      <div class="recent-copy"><span class="callout">Tacoma, WA · Two single-family homes</span><h3>Tacoma residential framing</h3><p>Side-by-side homes during wall and roof framing.</p></div>
+    </article>
   </div>
 </section>
 

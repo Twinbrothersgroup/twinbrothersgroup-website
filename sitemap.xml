@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.twinbrothersgroup.com/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,9 +26,16 @@
   </url>
   <url>
     <loc>https://www.twinbrothersgroup.com/portfolio.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/kirkland-house-two-dadus-framing-aerial.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/kirkland-dadu-exterior-framing-sheathing.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/bellevue-factoria-single-family-framing-aerial.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/bellevue-factoria-home-floor-framing.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/seattle-four-duplexes-wood-framing.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/seattle-duplex-roof-and-wall-framing.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.twinbrothersgroup.com/images/projects/tacoma-two-homes-wood-framing.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.twinbrothersgroup.com/capability-statement.html</loc>
